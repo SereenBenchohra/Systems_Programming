@@ -1,0 +1,10 @@
+Creates a hash table containing several elements and then calls htLookUp
+and verifies the following:
+
+   Each element is found in the list.
+   The element returned is a shallow copy of the original. 
+   Each element has the correct frequency.
+
+Note: The htDestroy function is called after the primary test to free all
+   dynamically allocated memory so that Valgrind may be used to verify that
+   there are no memory leaks.

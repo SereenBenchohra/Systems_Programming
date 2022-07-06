@@ -1,0 +1,16 @@
+reqAtMostGlobalVariables 0
+reqAtMostStaticFileVariables 0
+reqAtMostStaticLocalVariables 0
+reqNoDynamicMemory
+reqNoStdLibExecFunctions
+reqNoUseOf "(^goto | goto )"
+reqNoUseOf "(^getopt|[(=) ]getopt) *[(]"
+reqNoUseOf "(^read|[(=) ]read) *[(]"
+reqNoUseOf "(^fread|[(=) ]fread) *[(]"
+reqNoUseOf "(^fscanf|[(=) ]fscanf) *[(]"
+reqNoUseOf "(^vfscanf|[(=) ]vfscanf) *[(]"
+reqUseOf "[ =(]fopen[( ]"
+reqUseOf "[ =(](fgetc|getc)[( ]"
+reqUseOf " perror[( ]"
+reqAtLeastHeaderFiles 2
+reqAtLeastSourceFiles 3

@@ -1,0 +1,18 @@
+Creates a hash table, adds two entries that are are different but hash to
+the same index (collision), and after adding the second entry, verifies the
+following:
+
+   The second call to htAdd returns a frequency of 1.
+   The capacity of the hash table is as expected (unchanged from creation).
+   The number of unique entries in the hash table is 2.
+   The number of total entries in the hash table is 2.
+
+Depending on your hash function, it can be challenging to create a collision
+manually. One relatively easy way to test your hash table's behavior when
+there is a collision is to create a hash table with a bad/stupid hash
+function, i.e., one that always returns the same value and, therefore,
+always results in a collision. 
+
+Note: The htDestroy function is called after the primary test to free all
+   dynamically allocated memory so that Valgrind may be used to verify that
+   there are no memory leaks.

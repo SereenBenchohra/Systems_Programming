@@ -1,0 +1,22 @@
+Name: Sereen Benchohra
+Email: sbenchoh@calpoly.edu
+
+Put written answers here since could not upload file to server
+
+
+1.
+The main difference between System Call and Library Call is
+that System call is a request to the kernel to access a
+resource while library call is a request to use a function
+defined in a programming library. The operating system
+is an interface that allows the application programs to
+access hardware resources.
+
+2. file permissions : rw- rw- r--
+   umask :               r--  -w- rwx
+   -----------------------------------------
+   result : -wx r-x ---
+
+
+
+

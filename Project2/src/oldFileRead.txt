@@ -1,0 +1,24 @@
+
+void checkIfFlag(flagCheck *flag, char *arg, wordData wdata)
+{
+
+   if(arg[0] == '-')
+   {
+      if(arg[1] == 'c' && arg[2] == '\0')
+         flag->c = 1;
+            
+      else if(arg[1] == 'w' && arg[2] == '\0')
+         flag->w = 1;
+            
+      else if(arg[1] == 'l'&& arg[2] == '\0') 
+         flag->l = 1;
+            
+      else 
+      {
+         printf("swc: invalid option: '%s'\n", arg);
+         fprintf(stderr, "Usage: swc [-l|-w|-c]... [file]...\n");
+         exit(EXIT_FAILURE);
+      }   
+   }
+}
+

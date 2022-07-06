@@ -1,0 +1,5 @@
+This is a variation of test01 but with different inputs (seed, maximum
+letter, number of board positions, and number of guesses). Like test01 it
+plays Mastermind with all valid inputs but without guessing the right 
+answer within the specified number of guesses. The focus is to test a wide
+variety of exact and inexact combinations.

@@ -1,0 +1,126 @@
+
+
+-----------------
+9) Delete nonvowels (short file):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+Submitted program's stderr:
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+12) Delete nonvowels (long file):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Submitted program's stderr:
+ --- Output limited to 10 lines. (There would be too much.) ---
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+15) Delete nonvowels (all chars file):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+Submitted program's stderr:
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+18) Delete nonvowels (long line):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Submitted program's stderr:
+ --- Output limited to 10 lines. (There would be too much.) ---
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+23) Translate a short (long set2):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Timed out.
+Managed process (4693) exited due to signal (Terminated).
+
+
+-----------------
+24) Translate a long (long set2):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Timed out.
+Managed process (4728) exited due to signal (Terminated).
+
+
+-----------------
+25) Translate a all chars (long set2):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Timed out.
+Managed process (4756) exited due to signal (Terminated).
+
+
+-----------------
+26) Translate a long line (long set2):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Timed out.
+Managed process (4766) exited due to signal (Terminated).
+
+
+-----------------
+31) Translate a short (empty set2): 
+     xlat aeiou '' 
+-----------------
+ This test was expected to fail, but reports success.
+ Perhaps a bad exit status or no error message?
+
+
+-----------------
+32) Translate a long (empty set2): 
+     xlat aeiou '' 
+-----------------
+ This test was expected to fail, but reports success.
+ Perhaps a bad exit status or no error message?
+
+
+-----------------
+33) Translate a all chars (empty set2): 
+     xlat aeiou '' 
+-----------------
+ This test was expected to fail, but reports success.
+ Perhaps a bad exit status or no error message?
+
+
+-----------------
+34) Translate a long line (empty set2): 
+     xlat aeiou '' 
+-----------------
+ This test was expected to fail, but reports success.
+ Perhaps a bad exit status or no error message?

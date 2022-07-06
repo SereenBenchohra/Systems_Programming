@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "wordCount.h"
+
+FILE* fileOpen(const char *fname)
+{
+   FILE* Open = fopen(fname, "r"); 
+   if(Open == NULL)
+   {
+      fprintf(stderr, "swc: %s: ", fname);
+      perror("");
+      exit(EXIT_FAILURE);
+   }
+   return Open;
+}
+
+
+void printFlags(int c, int l, int w, wordData data)
+{
+
+   if(c == 0 && w == 0 && l == 0)
+      printf("%10u %10u %10u\n", data.nl, data.nw, data.nc);    
+   
+   else if(c == 0 && w == 0 && l == 1)
+      printf("%10u\n", data.nl);    
+
+   else if(c == 0 && w == 1 && l == 0)
+      printf("%10u\n", data.nw);    
+   
+   else if(c == 0 && w == 1 && l == 1)
+      printf("%10u %10u\n", data.nl, data.nw);    
+
+   else if(c == 1 && w == 0 && l == 0)
+      printf("%10u\n", data.nc);    
+
+   else if(c == 1 && w == 0 && l == 1)
+      printf("%10u %10u\n", data.nl, data.nc);    
+   
+   else if(c == 1 && w == 1 && l == 1)
+      printf("%10u %10u %10u\n", data.nl, data.nw, data.nc); 
+
+}
+
+void checkFlags(int argc, char *argv[], wordData wdata)
+{
+   int i;
+   int c = 0; /* c represents the number of bytes in each input file, 0 is there is no flag, 1 if it exists */
+   int w = 0; /* w represents the number of words in each input file, 0 is there is no flag, 1 if it exists */
+   int l = 0;  /* c represents the number of bytes in each input file, 0 is there is no flag, 1 if it exists */
+
+   for(i = 1; i < argc; i++)
+   {
+     if(argv[i][0] == '-')
+     {
+        if(strcmp(argv[i],"-c") == 0)
+           c = 1; 
+        if(strcmp(argv[i],"-w") == 0)
+           w = 1;   
+        if(strcmp(argv[i],"-l") == 0)
+           l = 1;
+        else 
+        {
+           printf("swc: invalid option: '%s'\n", argv[i]);
+           fprintf(stderr, "Usage: swc [-l|-w|-c]... [file]...\n");
+           exit(EXIT_FAILURE);
+        }
+
+     }
+   }
+
+   printFlags(c, l, w, wdata); 
+}
+
+/* void ifMultiFile(); */
+
+void readFile(int argc, char *argv[], wordData *data)
+{
+   /*Check to see reading from File input*/
+   FILE* input;
+   int cmdLength = argc - 1;
+   int i;
+   if(cmdLength == 0)
+   {
+      input = stdin;
+      wordCount(input, data);
+      checkFlags(argc, argv, *data);
+   }
+   else 
+   {
+      for(i = 1; i < argc; i++)
+      {
+         input = fileOpen(argv[i]);
+         wordCount(input, data);
+         fclose(input);
+         checkFlags(argc, argv, *data);
+         
+      }
+   }
+}

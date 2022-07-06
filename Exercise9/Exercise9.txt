@@ -1,0 +1,23 @@
+Sereen Benchohra Section 7
+1. For the source files I decided to have 3 source files, called "ui.c" , "game.c", "main.c". 
+   For the header files I have two named "ui.h", and "game.h".
+   The "ui.c" file contains all the program thats deals with the user.
+   The "game.c" contains all the game mechanics and how it calculates the guesses and 
+   the expected answer and sets up the game as well.
+   The "main.c" runs all the functions.
+   The header files will are utilized so that the files can access one another's contents.
+   
+2. So the struct I will make I will call it gameInfo. The member fields of that game is the randomNum,
+   the MaxLetter, and the numPos. I am not including  guesses since I will using that as a loop
+   count in the ui.c.
+
+3. So the important functions I am going to include is the UI functions (Which prompts and retrieves
+   data from the user that the user is asking for like (int getSeedNum(), Char getMaxLet(), 
+   int getNumOfPos(), and int getNumGuess()). For the Game.c I will have a function that 
+   generates the target value, as the function getGenerateValue(). In addition, I will have a 
+   function called GuessAccuracy() that sees how accurate the guess. An important piece of info 
+   from the UI, getting the guesses, I will create a function called EnterGuess(int guesses),
+   where it loops by the amount of guesses the user decides and if the Guess equals to the right
+   answer then it breaks from the loop and its a success. Other if the loop finishes then its a 
+   failure.
+   

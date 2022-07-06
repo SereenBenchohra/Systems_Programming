@@ -1,0 +1,17 @@
+#Assignment 02 - Sereen Benchohra (sbenchoh)
+
+ - To compile the program, enter the command "make" (This is a generic make file that runs all the *.c and 
+    *.h so if there is any source that is not suppose to run with the program make sure it is not there. 
+ - Also "make all" and "make fw" compile all the files as well
+ - Use "make clean" to rm all the object files 
+ - To run the program enter "./fw  [-n num] [file1 [file2 [..]]]"" in the terminal 
+ - If you want to enter in standard in, do not include any files in the command line 
+ - If you want to print a certain number of rows for the most frequent words,  use the -n followed by a number
+   for the top "number " most frequent words. If you do not input any flag it defaults to 10.
+
+   The program runs with an input of text files , if there is no text files the
+   input is stdin. The program then reads in the text and lists the most the
+   frequent words if there is a tie then its sorted alphabetically. User has
+   option on how many words can be listed.
+
+Status: Passed All the Tests Successfully

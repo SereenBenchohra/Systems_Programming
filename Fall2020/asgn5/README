@@ -1,0 +1,41 @@
+#Sereen Benchohra(sbenchoh)
+
+Status: Not completed 
+
+Limits of the command line structure:
+
+
+_______________________________________________________________________
+|                                                                      |
+|              Command Line Length :      512 bytes                    |
+|              Commands in a pipeline:    10 bytes                     |
+|              Arguments to a Command:    10 bytes                     |
+|______________________________________________________________________|
+
+
+The program will raise an error if it finds the limits to be violated.
+
+To Build the program, run make which compiles all the files, "parseline.c", 
+and "getInfo.c" where the object files are created. Once the program is built,
+you have to run it with the command "./parseline". A prompt will enter with 
+"line:" wherer you enter argmuments in your simulated command line. 
+
+When the arguments are entered, the program will parse the command into stages,
+separated by pipes. In each stage, the program will analyze the parsed command
+and display the input, output, argc, and the argv. 
+
+In the parsed line for Input, the displaydepends on what is given in the 
+arguments.If there is a  input redirection , "<", then the program will display
+the input file that redirection refers to ( An error is raised if there are 
+multiple redirections). If the input is received in the pipe, then the program 
+will let you know. Otherwise it is from stdin.
+
+Likewise for Output display also depends on the arguments. In the arguments if
+there is a " >", then the program will display the output file that it has been 
+redirected to. If the output is through a pipe, it is sent to the next stage 
+and the prompt will let you know (error if found multiple of the same 
+redirection).
+
+NOTE: I used Lab02 solution instead of minefor this project. Also did not 
+complete to have it testable for every test.
+

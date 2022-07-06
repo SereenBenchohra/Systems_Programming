@@ -1,0 +1,177 @@
+
+------------------------
+Looking for source files
+------------------------
+
+Found: testGetWord.c uniq.c
+
+-----------------------
+Looking for a Makefile
+----------------------
+
+Found: Makefile
+
+--------------------------------
+Checking for long lines (no program should have any lines > 80 chars)
+--------------------------------
+
+Line length ok.
+
+
+------------------------------------
+Building the application: "make uniq"
+------------------------------------
+
+make uniq
+gcc -Wall -ansi -pedantic -g -c uniq.c
+gcc   uniq.o   -o uniq
+
+---------------
+checking for uniq
+---------------
+
+
+
+--------------------------------
+Running the application 
+--------------------------------
+
+
+
+--------------------------------------------------------
+Test Results:
+   These are the results of trying your uniq against
+several input files with different characteristics 
+described by the filename.  These tests are by no 
+means exhaustive.  In fact, they're rather minimal.
+
+
+        0_Empty                        ... ok.
+        1_OneLine                      ... FAILURE.
+        2_TwoDifferentLines            ... FAILURE.
+        3_TwoSameLines                 ... FAILURE.
+        4_LotsOfSameLines              ... FAILURE.
+        5_LotsOfSameLinesOneDifferent  ... FAILURE.
+        6_ReallyLongLine               ... FAILURE.
+        7_ThreeReallyLongLines         ... FAILURE.
+        8_ShrinkingLines               ... FAILURE.
+
+Passed 1 out of 9 tests.
+
+--------------------------------------------------------
+
+FAILED.
+
+
+
+#############################
+# Failure details are below #
+#############################
+
+
+==========================================
+2) 1_OneLine  (fail)
+==========================================
+  --------------------------
+  Submitted's stdout:
+
+  --------------------------
+  --------------------------
+  Reference output:
+    This file has only one line in it.
+  --------------------------
+
+==========================================
+3) 2_TwoDifferentLines  (fail)
+==========================================
+  --------------------------
+  Submitted's stdout:
+
+  --------------------------
+  --------------------------
+  Reference output:
+    This is a line.
+    This is a different line.
+  --------------------------
+
+==========================================
+4) 3_TwoSameLines  (fail)
+==========================================
+  --------------------------
+  Submitted's stdout:
+
+  --------------------------
+  --------------------------
+  Reference output:
+    This is a line.
+  --------------------------
+
+==========================================
+5) 4_LotsOfSameLines  (fail)
+==========================================
+  --------------------------
+  Submitted's stdout:
+
+  --------------------------
+  --------------------------
+  Reference output:
+    This is a line that's just like all the others.
+  --------------------------
+
+==========================================
+6) 5_LotsOfSameLinesOneDifferent  (fail)
+==========================================
+  --------------------------
+  Submitted's stdout:
+
+  --------------------------
+  --------------------------
+  Reference output:
+    This is a line that's just like all the others.
+    I just gotta be me.
+    This is a line that's just like all the others.
+  --------------------------
+
+==========================================
+7) 6_ReallyLongLine  (fail)
+==========================================
+  --------------------------
+  Submitted's stdout:
+
+  --------------------------
+  --------------------------
+  Reference output:
+    Aarhus	Aaron	Ababa	aback	abaft	abandon	abandoned	abandoning	abandonment	abandons	abase	abased	abasement	abasements	abases	abash	abashed	abashes	abashing	abasing	abate	abated	abatement	abatements	abater	abates	abating	Abba	abbe	abbey	abbeys	abbot	abbots	Abbott	abbreviate	abbreviated	abbreviates	abbreviating	abbreviation	abbreviations	Abby	abdomen	abdomens	abdominal	abduct	abducted	abduction	abductions	abductor	abductors	abducts	Abe	abed	Abel	Abelian	Abelson	Aberdeen	Abernathy	aberrant	aberration	aberrations	abet	abets	abetted	abetter	abetting	abeyance	abhor	abhorred	abhorrent	abhorrer	abhorring	abhors	abide	abided	abides	abiding	Abidjan	Abigail	Abilene	abilities	ability	abject	abjection	abjections	abjectly	abjectness	abjure	abjured	abjures	abjuring	ablate	ablated	ablates	ablating	ablation	ablative	ablaze	able	abler	ablest	ably	Abner	abnormal	abnormalities	abnormality	abnormally	Abo	aboard	abode	abodes	abolish	abolished	abolisher	abolishers	abolishes	abolishing	abolishment	abolishments	abolition	abolitionist	abolitionists	abominable	abominate	aboriginal	aborigine	aborigines	abort	aborted	aborting	abortion	abortions	abortive	abortively	aborts	Abos	abound	abounded	abounding	abounds	about	above	aboveboard	aboveground	abovementioned	abrade	abraded	abrades	abrading	Abraham	Abram	Abrams	Abramson	abrasion	abrasions	abrasive	abreaction	abreactions	abreast	abridge	abridged	abridges	abridging	abridgment	abroad	abrogate	abrogated	abrogates	abrogating	abrupt	abruptly	abruptness	abscess	abscessed	abscesses	abscissa	abscissas	abscond	absconded	absconding	absconds	absence	absences	absent	absented	absentee	absenteeism	absentees	absentia	absenting	absently	absentminded	absents	absinthe	absolute	absolutely	absoluteness	absolutes	absolution	absolve	absolved	absolves	absolving	absorb	absorbed	absorbency	absorbent	absorber	absorbing	absorbs	absorption	absorptions	absorptive	abstain	abstained	abstainer	abstaining	abstains	abstention	abstentions	abstinence	abstract	abstracted	abstracting	abstraction	abstractionism	abstractionist	abstractions	abstractly	abstractness	abstractor	abstractors	abstracts	abstruse	abstruseness	absurd	absurdities	absurdity	absurdly	Abu	abundance	abundant	abundantly	abuse	abused	abuses	abusing	abusive	abut	abutment	abuts	abutted	abutter	abutters	abutting	abysmal	abysmally	abyss	abysses	Abyssinia	Abyssinian	Abyssinians	acacia	academia	academic	academically	academics	academies	academy	Acadia	Acapulco	accede	acceded	accedes	accelerate	accelerated	accelerates	accelerating	acceleration	accelerations	accelerator	accelerators	accelerometer	accelerometers	accent	accented	accenting	accents	accentual	accentuate	accentuated	accentuates	accentuating	accentuation	accept	acceptability	acceptable	acceptably	acceptance	acceptances	accepted	accepter	accepters	accepting	acceptor	acceptors	accepts	access	accessed	accesses	accessibility	accessible	accessibly	accessing	accession	accessions	accessories	accessors	accessory	accident	accidental	accidentally	accidently	accidents	acclaim	acclaimed	acclaiming	acclaims	acclamation	acclimate	acclimated	acclimates	acclimating	acclimatization	acclimatized	accolade	accolades	accommodate	accommodated	accommodates	accommodating	accommodation	accommodations	accompanied	accompanies	accompaniment	accompaniments	accompanist	accompanists	accompany	accompanying	accomplice	accomplices	accomplish	accomplished	accomplisher	accomplishers	accomplishes	accomplishing	accomplishment	accomplishments	accord	accordance	accorded	accorder	accorders	according	accordingly	accordion	accordions	accords	accost	accosted	accosting	accosts	account	accountability	accountable	accountably	accountancy	accountant	accountants	accounted	accounting	accounts	Accra	accredit	accreditation	accreditations	accredited	accretion	accretions	accrue	accrued	accrues	accruing	acculturate	acculturated	acculturates	acculturating	acculturation	accumulate	accumulated	accumulates	accumulating	accumulation	accumulations	accumulator	accumulators	accuracies	accuracy	accurate	accurately	accurateness	accursed	accusal	accusation	accusations	accusative	accuse	accus/home/pnico/bin/iolimit.Linux.x86_64: output character limit (4096) exceeded.
+  --------------------------
+
+==========================================
+8) 7_ThreeReallyLongLines  (fail)
+==========================================
+  --------------------------
+  Submitted's stdout:
+
+  --------------------------
+  --------------------------
+  Reference output:
+    Aarhus	Aaron	Ababa	aback	abaft	abandon	abandoned	abandoning	abandonment	abandons	abase	abased	abasement	abasements	abases	abash	abashed	abashes	abashing	abasing	abate	abated	abatement	abatements	abater	abates	abating	Abba	abbe	abbey	abbeys	abbot	abbots	Abbott	abbreviate	abbreviated	abbreviates	abbreviating	abbreviation	abbreviations	Abby	abdomen	abdomens	abdominal	abduct	abducted	abduction	abductions	abductor	abductors	abducts	Abe	abed	Abel	Abelian	Abelson	Aberdeen	Abernathy	aberrant	aberration	aberrations	abet	abets	abetted	abetter	abetting	abeyance	abhor	abhorred	abhorrent	abhorrer	abhorring	abhors	abide	abided	abides	abiding	Abidjan	Abigail	Abilene	abilities	ability	abject	abjection	abjections	abjectly	abjectness	abjure	abjured	abjures	abjuring	ablate	ablated	ablates	ablating	ablation	ablative	ablaze	able	abler	ablest	ably	Abner	abnormal	abnormalities	abnormality	abnormally	Abo	aboard	abode	abodes	abolish	abolished	abolisher	abolishers	abolishes	abolishing	abolishment	abolishments	abolition	abolitionist	abolitionists	abominable	abominate	aboriginal	aborigine	aborigines	abort	aborted	aborting	abortion	abortions	abortive	abortively	aborts	Abos	abound	abounded	abounding	abounds	about	above	aboveboard	aboveground	abovementioned	abrade	abraded	abrades	abrading	Abraham	Abram	Abrams	Abramson	abrasion	abrasions	abrasive	abreaction	abreactions	abreast	abridge	abridged	abridges	abridging	abridgment	abroad	abrogate	abrogated	abrogates	abrogating	abrupt	abruptly	abruptness	abscess	abscessed	abscesses	abscissa	abscissas	abscond	absconded	absconding	absconds	absence	absences	absent	absented	absentee	absenteeism	absentees	absentia	absenting	absently	absentminded	absents	absinthe	absolute	absolutely	absoluteness	absolutes	absolution	absolve	absolved	absolves	absolving	absorb	absorbed	absorbency	absorbent	absorber	absorbing	absorbs	absorption	absorptions	absorptive	abstain	abstained	abstainer	abstaining	abstains	abstention	abstentions	abstinence	abstract	abstracted	abstracting	abstraction	abstractionism	abstractionist	abstractions	abstractly	abstractness	abstractor	abstractors	abstracts	abstruse	abstruseness	absurd	absurdities	absurdity	absurdly	Abu	abundance	abundant	abundantly	abuse	abused	abuses	abusing	abusive	abut	abutment	abuts	abutted	abutter	abutters	abutting	abysmal	abysmally	abyss	abysses	Abyssinia	Abyssinian	Abyssinians	acacia	academia	academic	academically	academics	academies	academy	Acadia	Acapulco	accede	acceded	accedes	accelerate	accelerated	accelerates	accelerating	acceleration	accelerations	accelerator	accelerators	accelerometer	accelerometers	accent	accented	accenting	accents	accentual	accentuate	accentuated	accentuates	accentuating	accentuation	accept	acceptability	acceptable	acceptably	acceptance	acceptances	accepted	accepter	accepters	accepting	acceptor	acceptors	accepts	access	accessed	accesses	accessibility	accessible	accessibly	accessing	accession	accessions	accessories	accessors	accessory	accident	accidental	accidentally	accidently	accidents	acclaim	acclaimed	acclaiming	acclaims	acclamation	acclimate	acclimated	acclimates	acclimating	acclimatization	acclimatized	accolade	accolades	accommodate	accommodated	accommodates	accommodating	accommodation	accommodations	accompanied	accompanies	accompaniment	accompaniments	accompanist	accompanists	accompany	accompanying	accomplice	accomplices	accomplish	accomplished	accomplisher	accomplishers	accomplishes	accomplishing	accomplishment	accomplishments	accord	accordance	accorded	accorder	accorders	according	accordingly	accordion	accordions	accords	accost	accosted	accosting	accosts	account	accountability	accountable	accountably	accountancy	accountant	accountants	accounted	accounting	accounts	Accra	accredit	accreditation	accreditations	accredited	accretion	accretions	accrue	accrued	accrues	accruing	acculturate	acculturated	acculturates	acculturating	acculturation	accumulate	accumulated	accumulates	accumulating	accumulation	accumulations	accumulator	accumulators	accuracies	accuracy	accurate	accurately	accurateness	accursed	accusal	accusation	accusations	accusative	accuse	accus/home/pnico/bin/iolimit.Linux.x86_64: output character limit (4096) exceeded.
+  --------------------------
+
+==========================================
+9) 8_ShrinkingLines  (fail)
+==========================================
+  --------------------------
+  Submitted's stdout:
+
+  --------------------------
+  --------------------------
+  Reference output:
+    This test should check for problems with string termination.
+    This test should check for problems with string
+    This test should check for problems with
+    This test should check for problems
+    This test should check
+    This test should 
+    This test 
+    This 
+    
+  --------------------------

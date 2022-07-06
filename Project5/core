@@ -1,0 +1,10 @@
+Test a 2 process pipeline with valid arguments.
+Test a 2 process pipeline with valid arguments AND more data than will fit
+into a single pipe to verify that both processes exist simultaneously.
+Test an N-process pipeline between 2 and 10, exclusive with valid arguments
+AND more data than will fit into a single pipe to verify that all processes
+exist simultaneously.
+Test a 10 process pipeline with valid arguments.
+Test a 10 process pipeline with valid arguments AND more data than will fit
+into a single pipe to verify that all processes exist simultaneously.
+

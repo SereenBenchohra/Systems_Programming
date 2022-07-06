@@ -1,0 +1,66 @@
+TEST BACKGROUND:
+
+This test is designed to detect an error condition several students typically
+experience in their hash table implementations each quarter. It is not a test
+I originally thought to develop for the Hash Table project and was only
+uncovered when students used their hash table in a more complex environment,
+i.e., the Word Frequency project that follows the Hash Table project.
+
+There have been different causes of the bug but it manifests as an
+occasionally incorrect word frequency. Often it would only show when
+many thousands of words were added to the hash table.
+
+   FYI: It is a very difficult to debug in that environment!
+
+When such bugs are discovered it is good practice to add a distilled/simpler
+version of it to your test suite to ensure that future versions of the code
+do not reintroduce it. This type of test is often referred to as a
+regression test i.e., a test designed to ensure that future versions of your
+program do not "regress" to a prior state. It may surprise you to know that
+experience shows this happens in the real world with annoying frequency!
+
+THE TEST:
+
+To stress the logic that updates frequencies you need to create collisions. And,
+recall, there are two types of collisions, they are:
+
+   1. Collisions when the data is identical
+   2. Collisions when the data is different but happens to hash to the same
+      index.
+      
+The test needs to create both types of collisions and in such a way that the
+frequencies of the different collisions types are different to avoid masking
+bugs where the answer is correct but for the wrong reasons.
+
+So, the test needs to creates two or three different groups of data where each
+member of the group has the same value but is different from the other groups.
+The duplicates within a group must be in different memory locations, i.e.,
+don't just add the same pointer multiple times or you won't be able to test for
+the shallow copy discussed below.
+
+HINT/SUGGESTION: A good hash function makes it challenging to create collisions
+for different data manually. One relatively easy way to test your hash table's
+behavior when there are collision is to create a hash table with a bad/stupid
+hash function, i.e., one that always returns the same value and, therefore,
+always results in a collision! 
+
+So, for example, you might create one "RED" string, two "GREEN" strings, and
+three "BLUE" strings. Using a bad/stupid hash, this will result in both kinds of
+collision and the frequencies of each group of identical values should be
+different, i.e., 1, 2, or 3.
+
+Next, data like that described above is added to the hash table using htAdd
+and then the following things are verified by calling htLookUp once for each
+unique group value, i.e., "RED", "GREEN", and "BLUE", and checking:
+
+   * That the element is found in the list.
+   * That the element returned is a shallow copy of the FIRST member of the
+     group that was added (shallow copy means the same address/pointer value). 
+   * That each element has the correct frequency.
+
+Note: The htDestroy function is called after the primary test to free all
+   dynamically allocated memory so that Valgrind may be used to verify that
+   there are no memory leaks. And, remember, you the tester/user, must free any
+   values that were not added, i.e., when htAdd returned a frequency greater
+   than 1 indicating it was a duplicate and was NOT physically added to the
+   hash table.

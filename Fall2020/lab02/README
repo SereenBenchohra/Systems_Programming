@@ -1,0 +1,32 @@
+# Lab02 - Sereen Benchohra (sbenchoh)
+
+1. a) char *cp;
+   b) char *ap[];
+   c) int **p;
+
+2. Yes you can but then  once you make it point to itself it becomes another pointer, an extra pointer.
+
+3. The fundamental problem with this code is in within the for loop statement, "p != '\0'", which is a 
+   problem since it is looking for the '\0' within an actual address rather than the contents of a string.
+   As a result, this will result in an infinite loop that dumps a bunch of content that will eventually
+   cause a segmentation fault. In order to fix this, we need to access the contents of the pointer, so
+   we need to deference p to work with the new statement being "*p != '\0'".
+
+4. a)  This statements is correct in some ways because both array and pointers access memory.
+
+   b)  That statement is not entirely true because pointers  can take different 
+       addresses as value but an array cannot change. An array always  points to the first element of an
+       array and you cannot change what an array points to.
+
+
+5. Perror needs to have a const parameter because the the argument to perror is a pointer. As a result,
+   this  could change or corrupt the string that it points to. So, const prevents that from happenning.
+   But the argument in strerror is not a pointer and is pass by value, so there is not a concern for any
+   corruption or change in data even if attempted to.
+
+
+6. The year in which it will overflow is 2038. We can extend the overflow point by updating time_t to a 
+   64-bit integer. Applications have to recompile and updated  to the new 64- bit integer.
+
+7. size_t is an unsigned integer data type, which give a a value greater than or equal to 0. It is located 
+   in the stdlib.h.

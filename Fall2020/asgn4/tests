@@ -1,0 +1,67 @@
+
+------------------------
+Looking for source files
+------------------------
+
+Found: clreader.c clreader.h createArchive.c createArchive.h extractArchive.c extractArchive.h mytar.c mytar.h nicoFuncts.c nicoFuncts.h tableArchive.c tableArchive.h
+
+-----------------------
+Looking for a Makefile
+----------------------
+
+Found: Makefile
+
+--------------------------------
+Checking for long lines (no program should have any lines > 80 chars)
+(run ~pnico/bin/longlines.pl on your files to check.)
+--------------------------------
+
+Line length ok.
+
+Found: Makefile
+
+------------------------------------
+Building the application: "make mytar"
+------------------------------------
+
+make mytar
+make: `mytar' is up to date.
+
+---------------
+checking for executable
+---------------
+
+
+------------------------
+Running the application 
+------------------------
+
+
+-----------------Application tests-------------------------
+
+Test Results:
+   These are the results of trying your mytar against a
+small battery of tests that explores
+
+   1) Basic functionality,
+   2) Archive Creation,
+   3) Archive Listing, and
+   4) Archive Extraction.
+
+  This is not remotely complete.  Some items will still
+have to be checked by hand.
+
+  This script looks for error messages to appear on stderr
+as should be the case for all good unix applications.
+------------------------------------------------------------
+
+==============
+  General Tests:
+     1) no arguments                                 ... (probably) ok.
+     2) no C, T, or X                                ... (probably) ok.
+     3) f switch with no filename                    ... 
+Interrupted.
+Cleaning up
+
+Interrupted
+

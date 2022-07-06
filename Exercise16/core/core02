@@ -1,0 +1,4 @@
+Test with file that does not have whitespace following the last "word". This
+situation can be created in a Unix text file by following the directions linked
+to the Word Count project (Project 2). It is meant to make sure you logic works
+for all binary files, some of which end in whitespace and some of which do not.

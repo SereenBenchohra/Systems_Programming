@@ -1,0 +1,13 @@
+Tests swc with no options and processing a readable binary file that
+contains all possible (2^8) byte values, i.e., 256 unique bytes.
+
+Note that there are 256! (factorial) possible orders for 256 values. For
+fun, try to calculate the number of orders - it is a value that, when
+assigned to a double, is considered to be infinity. It's not, but it
+exceeds the largest value a double is capable of representing, i.e., greater
+than 1.79769e+308 - wow, testing well really is hard!
+
+So, if you fail this test you should try a least a few different files
+containing all possible byte values and, if you need help, be prepared to
+provide those files to your instructor/TA. You can generate your own files
+with a simple C program that writes byte (unsigned char) values to a file.

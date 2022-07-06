@@ -1,0 +1,13 @@
+This is testing getline 
+to see if it prints the line from 
+every line
+hello
+This
+is
+cool
+testing
+getline
+for
+three lines
+and if it prints
+them

@@ -1,0 +1,16 @@
+a.out
+getInfo.c
+getInfo.h
+getInfo.o
+inreader.c
+inreader.o
+Makefile
+out
+parseline
+parseline.c
+parseline.o
+readline.c
+readline.h
+readline.o
+README
+test

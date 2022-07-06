@@ -1,0 +1,1 @@
+Test that htAdd asserts when you attempt to add NULL data.

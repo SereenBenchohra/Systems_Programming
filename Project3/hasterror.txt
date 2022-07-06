@@ -1,0 +1,375 @@
+==4116== Memcheck, a memory error detector
+==4116== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4116== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==4116== Command: ./a.out
+==4116== 
+Running regular core11
+Running regular core12
+==4116== Conditional jump or move depends on uninitialised value(s)
+==4116==    at 0x400BF4: freeArray (hashTable.c:74)
+==4116==    by 0x400C53: htDestroy (hashTable.c:89)
+==4116==    by 0x401A62: core12 (testHashTable.c:190)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== Invalid free() / delete / delete[] / realloc()
+==4116==    at 0x4C2AF9D: free (vg_replace_malloc.c:540)
+==4116==    by 0x400C15: freeArray (hashTable.c:81)
+==4116==    by 0x400C53: htDestroy (hashTable.c:89)
+==4116==    by 0x401A62: core12 (testHashTable.c:190)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116==  Address 0x5205750 is 0 bytes inside a block of size 24 free'd
+==4116==    at 0x4C2AF9D: free (vg_replace_malloc.c:540)
+==4116==    by 0x400BEE: freeArray (hashTable.c:79)
+==4116==    by 0x400C53: htDestroy (hashTable.c:89)
+==4116==    by 0x401A62: core12 (testHashTable.c:190)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116==  Block was alloc'd at
+==4116==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==4116==    by 0x400F66: htAdd (hashTable.c:193)
+==4116==    by 0x401890: core12 (testHashTable.c:183)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+Running regular core13
+==4116== Conditional jump or move depends on uninitialised value(s)
+==4116==    at 0x400BF4: freeArray (hashTable.c:74)
+==4116==    by 0x400C53: htDestroy (hashTable.c:89)
+==4116==    by 0x401D40: core13 (testHashTable.c:212)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== Invalid free() / delete / delete[] / realloc()
+==4116==    at 0x4C2AF9D: free (vg_replace_malloc.c:540)
+==4116==    by 0x400C15: freeArray (hashTable.c:81)
+==4116==    by 0x400C53: htDestroy (hashTable.c:89)
+==4116==    by 0x401D40: core13 (testHashTable.c:212)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116==  Address 0x5205b00 is 0 bytes inside a block of size 24 free'd
+==4116==    at 0x4C2AF9D: free (vg_replace_malloc.c:540)
+==4116==    by 0x400BEE: freeArray (hashTable.c:79)
+==4116==    by 0x400C53: htDestroy (hashTable.c:89)
+==4116==    by 0x401D40: core13 (testHashTable.c:212)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116==  Block was alloc'd at
+==4116==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==4116==    by 0x400F66: htAdd (hashTable.c:193)
+==4116==    by 0x401AE5: core13 (testHashTable.c:201)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+Running regular core14
+==4116== Conditional jump or move depends on uninitialised value(s)
+==4116==    at 0x400E54: IfHashNotEmpty (hashTable.c:147)
+==4116==    by 0x400FC0: htAdd (hashTable.c:203)
+==4116==    by 0x401E54: core14 (testHashTable.c:229)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+Failed test in testHashTable.c at line 231:
+   Found substitution freq, value 1, expected 2
+==4116== Conditional jump or move depends on uninitialised value(s)
+==4116==    at 0x400E54: IfHashNotEmpty (hashTable.c:147)
+==4116==    by 0x400FC0: htAdd (hashTable.c:203)
+==4116==    by 0x40202D: core14 (testHashTable.c:236)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+Failed test in testHashTable.c at line 238:
+   Found substitution freq, value 1, expected 3
+==4116== Conditional jump or move depends on uninitialised value(s)
+==4116==    at 0x400BF4: freeArray (hashTable.c:74)
+==4116==    by 0x400C53: htDestroy (hashTable.c:89)
+==4116==    by 0x40222C: core14 (testHashTable.c:243)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== Invalid free() / delete / delete[] / realloc()
+==4116==    at 0x4C2AF9D: free (vg_replace_malloc.c:540)
+==4116==    by 0x400C15: freeArray (hashTable.c:81)
+==4116==    by 0x400C53: htDestroy (hashTable.c:89)
+==4116==    by 0x40222C: core14 (testHashTable.c:243)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116==  Address 0x5205e30 is 0 bytes inside a block of size 24 free'd
+==4116==    at 0x4C2AF9D: free (vg_replace_malloc.c:540)
+==4116==    by 0x400BEE: freeArray (hashTable.c:79)
+==4116==    by 0x400C53: htDestroy (hashTable.c:89)
+==4116==    by 0x40222C: core14 (testHashTable.c:243)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116==  Block was alloc'd at
+==4116==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==4116==    by 0x400F66: htAdd (hashTable.c:193)
+==4116==    by 0x401DD4: core14 (testHashTable.c:225)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+Running regular core15
+==4116== Conditional jump or move depends on uninitialised value(s)
+==4116==    at 0x4011FE: htToArray (hashTable.c:272)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x4022B2: core15 (testHashTable.c:254)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== Conditional jump or move depends on uninitialised value(s)
+==4116==    at 0x400E54: IfHashNotEmpty (hashTable.c:147)
+==4116==    by 0x400FC0: htAdd (hashTable.c:203)
+==4116==    by 0x40233B: core15 (testHashTable.c:258)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== Conditional jump or move depends on uninitialised value(s)
+==4116==    at 0x4011FE: htToArray (hashTable.c:272)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x40233B: core15 (testHashTable.c:258)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== Conditional jump or move depends on uninitialised value(s)
+==4116==    at 0x4011FE: htToArray (hashTable.c:272)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x4023C4: core15 (testHashTable.c:262)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+Failed test in testHashTable.c at line 267:
+   Found substitution htUniqueEntries(ht), value 2, expected 3
+==4116== Conditional jump or move depends on uninitialised value(s)
+==4116==    at 0x400BF4: freeArray (hashTable.c:74)
+==4116==    by 0x400C53: htDestroy (hashTable.c:89)
+==4116==    by 0x402596: core15 (testHashTable.c:270)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== Invalid free() / delete / delete[] / realloc()
+==4116==    at 0x4C2AF9D: free (vg_replace_malloc.c:540)
+==4116==    by 0x400C15: freeArray (hashTable.c:81)
+==4116==    by 0x400C53: htDestroy (hashTable.c:89)
+==4116==    by 0x402596: core15 (testHashTable.c:270)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116==  Address 0x52061d0 is 0 bytes inside a block of size 24 free'd
+==4116==    at 0x4C2AF9D: free (vg_replace_malloc.c:540)
+==4116==    by 0x400BEE: freeArray (hashTable.c:79)
+==4116==    by 0x400C53: htDestroy (hashTable.c:89)
+==4116==    by 0x402596: core15 (testHashTable.c:270)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116==  Block was alloc'd at
+==4116==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==4116==    by 0x400F66: htAdd (hashTable.c:193)
+==4116==    by 0x4022B2: core15 (testHashTable.c:254)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+Running regular core16
+Running regular core17
+==4116== Use of uninitialised value of size 8
+==4116==    at 0x400C7A: emptyHTError (hashTable.c:98)
+==4116==    by 0x400EDC: htAdd (hashTable.c:183)
+==4116==    by 0x400DAB: checkLoadFactor (hashTable.c:135)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x402730: core17 (testHashTable.c:294)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== Invalid read of size 8
+==4116==    at 0x400C7A: emptyHTError (hashTable.c:98)
+==4116==    by 0x400EDC: htAdd (hashTable.c:183)
+==4116==    by 0x400DAB: checkLoadFactor (hashTable.c:135)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x402730: core17 (testHashTable.c:294)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116==  Address 0x1132 is not stack'd, malloc'd or (recently) free'd
+==4116== 
+==4116== 
+==4116== Process terminating with default action of signal 11 (SIGSEGV)
+==4116==  Access not within mapped region at address 0x1132
+==4116==    at 0x400C7A: emptyHTError (hashTable.c:98)
+==4116==    by 0x400EDC: htAdd (hashTable.c:183)
+==4116==    by 0x400DAB: checkLoadFactor (hashTable.c:135)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x402730: core17 (testHashTable.c:294)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116==  If you believe this happened as a result of a stack
+==4116==  overflow in your program's main thread (unlikely but
+==4116==  possible), you can try to increase the size of the
+==4116==  main thread stack using the --main-stacksize= flag.
+==4116==  The main thread stack size used in this run was 8388608.
+==4116== 
+==4116== HEAP SUMMARY:
+==4116==     in use at exit: 785 bytes in 22 blocks
+==4116==   total heap usage: 46 allocs, 30 frees, 3,269 bytes allocated
+==4116== 
+==4116== 16 bytes in 1 blocks are definitely lost in loss record 2 of 22
+==4116==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==4116==    by 0x40114C: htToArray (hashTable.c:261)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x401890: core12 (testHashTable.c:183)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== 16 bytes in 1 blocks are definitely lost in loss record 3 of 22
+==4116==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==4116==    by 0x40114C: htToArray (hashTable.c:261)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x401AE5: core13 (testHashTable.c:201)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== 16 bytes in 1 blocks are definitely lost in loss record 4 of 22
+==4116==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==4116==    by 0x40114C: htToArray (hashTable.c:261)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x401DD4: core14 (testHashTable.c:225)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== 16 bytes in 1 blocks are definitely lost in loss record 5 of 22
+==4116==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==4116==    by 0x40114C: htToArray (hashTable.c:261)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x401E54: core14 (testHashTable.c:229)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== 16 bytes in 1 blocks are definitely lost in loss record 6 of 22
+==4116==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==4116==    by 0x40114C: htToArray (hashTable.c:261)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x40202D: core14 (testHashTable.c:236)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== 16 bytes in 1 blocks are definitely lost in loss record 7 of 22
+==4116==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==4116==    by 0x40114C: htToArray (hashTable.c:261)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x4022B2: core15 (testHashTable.c:254)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== 16 bytes in 1 blocks are definitely lost in loss record 8 of 22
+==4116==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==4116==    by 0x40114C: htToArray (hashTable.c:261)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x40233B: core15 (testHashTable.c:258)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== 16 bytes in 1 blocks are definitely lost in loss record 9 of 22
+==4116==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==4116==    by 0x40114C: htToArray (hashTable.c:261)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x402714: core17 (testHashTable.c:293)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== 24 bytes in 1 blocks are definitely lost in loss record 12 of 22
+==4116==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==4116==    by 0x400F66: htAdd (hashTable.c:193)
+==4116==    by 0x401E54: core14 (testHashTable.c:229)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== 24 bytes in 1 blocks are definitely lost in loss record 13 of 22
+==4116==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==4116==    by 0x400F66: htAdd (hashTable.c:193)
+==4116==    by 0x40202D: core14 (testHashTable.c:236)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== 32 bytes in 1 blocks are definitely lost in loss record 15 of 22
+==4116==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==4116==    by 0x40114C: htToArray (hashTable.c:261)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x401B6E: core13 (testHashTable.c:205)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== 32 bytes in 1 blocks are definitely lost in loss record 16 of 22
+==4116==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==4116==    by 0x40114C: htToArray (hashTable.c:261)
+==4116==    by 0x400CF1: checkLoadFactor (hashTable.c:118)
+==4116==    by 0x400FD6: htAdd (hashTable.c:206)
+==4116==    by 0x4023C4: core15 (testHashTable.c:262)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== 74 (24 direct, 50 indirect) bytes in 1 blocks are definitely lost in loss record 20 of 22
+==4116==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==4116==    by 0x400F66: htAdd (hashTable.c:193)
+==4116==    by 0x40233B: core15 (testHashTable.c:258)
+==4116==    by 0x402DAF: testAll (testHashTable.c:389)
+==4116==    by 0x402EC7: runTests (testHashTable.c:415)
+==4116==    by 0x40314F: main (testHashTable.c:584)
+==4116== 
+==4116== LEAK SUMMARY:
+==4116==    definitely lost: 264 bytes in 13 blocks
+==4116==    indirectly lost: 50 bytes in 1 blocks
+==4116==      possibly lost: 0 bytes in 0 blocks
+==4116==    still reachable: 471 bytes in 8 blocks
+==4116==         suppressed: 0 bytes in 0 blocks
+==4116== Reachable blocks (those to which a pointer was found) are not shown.
+==4116== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4116== 
+==4116== For counts of detected and suppressed errors, rerun with: -v
+==4116== Use --track-origins=yes to see where uninitialised values come from
+==4116== ERROR SUMMARY: 34 errors from 29 contexts (suppressed: 0 from 0)

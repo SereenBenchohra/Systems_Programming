@@ -1,0 +1,7 @@
+reqAtMostGlobalVariables 0
+reqAtMostStaticFileVariables 0
+reqAtMostStaticLocalVariables 0
+reqNoUseOf "(^goto | goto )"
+reqNoDynamicMemory
+reqUseOf "(^sscanf|[(= ]sscanf) *[(]"
+reqAtLeastFunctions 4

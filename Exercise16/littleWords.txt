@@ -1,0 +1,1 @@
+Hello My name is Sereen Bhskjaf;elidj and this is testing the basic functionality of getWord .

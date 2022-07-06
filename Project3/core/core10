@@ -1,0 +1,1 @@
+Test that htLookUp asserts when attempting to lookup NULL. 

@@ -1,0 +1,2 @@
+Tests swc with good and bad files in some order. Note that "bad" files
+are files that cannot be opened for some reason.

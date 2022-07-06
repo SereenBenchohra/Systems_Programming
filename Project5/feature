@@ -1,0 +1,50 @@
+Test a 3 process pipeline with valid arguments.
+Test a 4 process pipeline with valid arguments.
+Test a 5 process pipeline with valid arguments.
+Test a 6 process pipeline with valid arguments.
+Test a 7 process pipeline with valid arguments.
+Test a 8 process pipeline with valid arguments.
+Test a 9 process pipeline with valid arguments.
+Test to verify BOTH the parent and child processes are managing ALL pipe
+ends correctly by processing more data than can fit into ALL of the pipes
+involved in the pipeline AND piping the result of pipeline to another
+command that terminates BEFORE processing all of the input. For Example:
+
+   pipeline someChild -p 8 < moreIntegerValuesThanFitsInAllPipes.txt | head -7
+
+NOTES:
+
+   1. The provided command above is an EXAMPLE. The actual Evaluation System
+      test will be similar and will use more integer values than will fit in
+      all pipes simultaneously and it may use a different -p flag value and a
+      different flag for head during testing. And, the arguments to pipeline
+      may appear in a different order.
+
+   2. Failing this test, 99.9999% of the time, is due NOT closing all of the
+      pipe ends correctly - that is precisely what that test designed to verify.
+      The head command terminates as soon as it prints out the number of lines
+      requested. When it terminates the read end of the pipe it was reading from
+      is closed. That should cause the process that is writing to it to get a
+      SIGPIPE/Broken Pipe error resulting in it terminating. Then, when it
+      terminates it closes the read end of the pipe it is reading from which
+      causes the process writing to it to get a SIGPIPE/Broken Pipe error... all
+      the way back to the first process.
+
+      The fact that children prior to head are not terminating means they are
+      NOT getting the expected SIGPIPE/Broken Pipe error and the most likely
+      reason for that is that some other process has the read end of the pipe
+      they are writing to open. The only possibilities are the parent itself
+      and/or one or more of the other children.
+
+      To discover what fd(s) you are not closing correctly I suggest printing
+      out diagnostic messages (fprintf(stderr, ...)) every place you are closing
+      an fd. Be sure to include what process is doing it (parent or child in the
+      "magic time") - with that information and a good drawing what what should
+      be happening, you should uncover your error.
+Test with arguments in a different order.
+Test with an invalid flag.
+Test with a missing argument/flag.
+Test with an extra flag/argument.
+Test with a missing -p flag value.
+Test with some invalid -p flag value.
+Test with some different invalid -p flag value.

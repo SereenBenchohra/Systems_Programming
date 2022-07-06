@@ -1,0 +1,2 @@
+Tests with a small file, text or binary, that contains more than zero bytes and
+less than 16 bytes.

@@ -1,0 +1,2 @@
+Tests Mastermind's handling of invalid numbers of guesses - specifically
+non-numeric values and values out of range (non-zero, positive).

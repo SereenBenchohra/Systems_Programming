@@ -1,0 +1,7 @@
+#Assignment 01 - Sereen Benchohra (sbenchoh)
+
+ - To compile the program, enter the command "gcc -Wall detab.c" in the terminal
+
+ - To run the program enter "./a.outi <FILE INPUT>" in the terminal
+
+Status : 11 out of 12 Tests passed Successful. 8 Failed only because the last line did not match

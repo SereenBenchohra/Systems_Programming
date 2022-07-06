@@ -1,0 +1,11 @@
+#!/bin/bash
+for testInput in *.in; do
+   # Strip off the file extension, i.e., the ".in"
+   name=${testInput%.in}
+
+   # Run the test
+   a.out < $testInput > $name.out
+
+   # diff the results
+   diff $name.out $name.expect
+done

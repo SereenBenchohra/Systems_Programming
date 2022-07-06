@@ -1,0 +1,11 @@
+Enter the seed for random number generation: Enter the maximum letter for the game (A-Z): Enter the number of positions for the game (1-8): Enter the number of guesses allowed for the game: Initialized Game Board: BDCC
+
+Enter guess 1: Nope, 1 exact guesses and 0 inexact guesses
+
+Enter guess 2: Nope, 1 exact guesses and 0 inexact guesses
+
+Enter guess 3: Nope, 1 exact guesses and 0 inexact guesses
+
+Enter guess 4: Nope, 1 exact guesses and 0 inexact guesses
+
+Game over, you ran out of guesses. Better luck next time!

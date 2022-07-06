@@ -1,0 +1,2 @@
+Tests swc with some number of valid and invalid flags and reading from 
+stdin or some number of files.

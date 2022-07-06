@@ -1,0 +1,14 @@
+Sereen Benchohra(sbenchoh)
+
+To compile  the program use "gcc -Wall *.c -o xlat" (Used to compile all c files in 
+ directory)
+
+To run the program use "run ./xlat [-d] [-c] set1 [set2]
+
+To run the delete function run "./xlat -d set1 
+
+To run the deletei complements  function run "./xlat -d -c  set1 
+
+To run the Translate Function run "./xlat  set1 set2 " 
+
+Program runs but does not pass all edge cases. 

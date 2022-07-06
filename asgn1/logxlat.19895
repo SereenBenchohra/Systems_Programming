@@ -1,0 +1,557 @@
+
+
+-----------------
+7) Translate a short file:
+     xlat aeiou AEIOU 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (19910) exited due to signal (Segmentation fault).
+
+
+-----------------
+9) Delete nonvowels (short file):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+Submitted program's stderr:
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+10) Translate a long file:
+     xlat aeiou AEIOU 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (19924) exited due to signal (Segmentation fault).
+
+
+-----------------
+12) Delete nonvowels (long file):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Submitted program's stderr:
+ --- Output limited to 10 lines. (There would be too much.) ---
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+13) Translate a all chars file:
+     xlat aeiou AEIOU 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (19950) exited due to signal (Segmentation fault).
+
+
+-----------------
+15) Delete nonvowels (all chars file):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+Submitted program's stderr:
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+16) Translate a long line:
+     xlat aeiou AEIOU 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (19964) exited due to signal (Segmentation fault).
+
+
+-----------------
+18) Delete nonvowels (long line):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Submitted program's stderr:
+ --- Output limited to 10 lines. (There would be too much.) ---
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+19) Translate a short (long set2):
+     xlat aeiou AEIOUextra 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (19991) exited due to signal (Segmentation fault).
+
+
+-----------------
+20) Translate a long (long set2):
+     xlat aeiou AEIOUextra 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (19995) exited due to signal (Segmentation fault).
+
+
+-----------------
+21) Translate a all chars (long set2):
+     xlat aeiou AEIOUextra 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20003) exited due to signal (Segmentation fault).
+
+
+-----------------
+22) Translate a long line (long set2):
+     xlat aeiou AEIOUextra 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20007) exited due to signal (Segmentation fault).
+
+
+-----------------
+23) Translate a short (long set2):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20015) exited due to signal (Segmentation fault).
+
+
+-----------------
+24) Translate a long (long set2):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20019) exited due to signal (Segmentation fault).
+
+
+-----------------
+25) Translate a all chars (long set2):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20027) exited due to signal (Segmentation fault).
+
+
+-----------------
+26) Translate a long line (long set2):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20031) exited due to signal (Segmentation fault).
+
+
+-----------------
+27) Translate a short (empty set1):
+     xlat '' aeiou 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20039) exited due to signal (Segmentation fault).
+
+
+-----------------
+28) Translate a long (empty set1):
+     xlat '' aeiou 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20043) exited due to signal (Segmentation fault).
+
+
+-----------------
+29) Translate a all chars (empty set1):
+     xlat '' aeiou 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20051) exited due to signal (Segmentation fault).
+
+
+-----------------
+30) Translate a long line (empty set1):
+     xlat '' aeiou 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20055) exited due to signal (Segmentation fault).
+
+
+-----------------
+31) Translate a short (empty set2):
+     xlat aeiou '' 
+-----------------
+Program was expected to fail, but produced no stderr output
+
+Test program output:
+Managed process (20063) exited due to signal (Segmentation fault).
+
+
+-----------------
+32) Translate a long (empty set2):
+     xlat aeiou '' 
+-----------------
+Program was expected to fail, but produced no stderr output
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20067) exited due to signal (Segmentation fault).
+
+
+-----------------
+33) Translate a all chars (empty set2):
+     xlat aeiou '' 
+-----------------
+Program was expected to fail, but produced no stderr output
+
+Test program output:
+Managed process (20075) exited due to signal (Segmentation fault).
+
+
+-----------------
+34) Translate a long line (empty set2):
+     xlat aeiou '' 
+-----------------
+Program was expected to fail, but produced no stderr output
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20079) exited due to signal (Segmentation fault).
+
+
+-----------------
+35) Translate a short (repeats set1):
+     xlat abcabc aeioux 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20087) exited due to signal (Segmentation fault).
+
+
+-----------------
+36) Translate a long (repeats set1):
+     xlat abcabc aeioux 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20091) exited due to signal (Segmentation fault).
+
+
+-----------------
+37) Translate a all chars (repeats set1):
+     xlat abcabc aeioux 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20099) exited due to signal (Segmentation fault).
+
+
+-----------------
+38) Translate a long line (repeats set1):
+     xlat abcabc aeioux 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20103) exited due to signal (Segmentation fault).
+
+
+-----------------
+39) Translate a short (repeats):
+     xlat abcabc aaaaaa 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20111) exited due to signal (Segmentation fault).
+
+
+-----------------
+40) Translate a long (repeats):
+     xlat abcabc aaaaaa 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20115) exited due to signal (Segmentation fault).
+
+
+-----------------
+41) Translate a all chars (repeats):
+     xlat abcabc aaaaaa 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20123) exited due to signal (Segmentation fault).
+
+
+-----------------
+42) Translate a long line (repeats):
+     xlat abcabc aaaaaa 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20127) exited due to signal (Segmentation fault).
+
+
+-----------------
+43) newlines in set1 (short file):
+     xlat 'abc\012def' xxxxxxx 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20135) exited due to signal (Segmentation fault).
+
+
+-----------------
+44) newlines in set1 (long file):
+     xlat 'abc\012def' xxxxxxx 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20139) exited due to signal (Segmentation fault).
+
+
+-----------------
+45) newlines in set1 (all chars file):
+     xlat 'abc\012def' xxxxxxx 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20147) exited due to signal (Segmentation fault).
+
+
+-----------------
+46) newlines in set1 (long line):
+     xlat 'abc\012def' xxxxxxx 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20151) exited due to signal (Segmentation fault).
+
+
+-----------------
+47) newlines in set1 (very long file):
+     xlat 'abc\012def' xxxxxxx 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20160) exited due to signal (Segmentation fault).
+
+
+-----------------
+48) newlines in set2 (short file):
+     xlat xxxxxxx 'abc\012def' 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20168) exited due to signal (Segmentation fault).
+
+
+-----------------
+49) newlines in set2 (long file):
+     xlat xxxxxxx 'abc\012def' 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20172) exited due to signal (Segmentation fault).
+
+
+-----------------
+50) newlines in set2 (all chars file):
+     xlat xxxxxxx 'abc\012def' 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20180) exited due to signal (Segmentation fault).
+
+
+-----------------
+51) newlines in set2 (long line):
+     xlat xxxxxxx 'abc\012def' 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20184) exited due to signal (Segmentation fault).
+
+
+-----------------
+52) newlines in set2 (very long file):
+     xlat xxxxxxx 'abc\012def' 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20192) exited due to signal (Segmentation fault).
+
+
+-----------------
+53) wide trans alphabet (short file):
+     xlat '\001\002\003\004\005\006\007\010\016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037!#&()*+,./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ^_abcdefghijklmnopqrstuvwxyz{|}~\177\200\201\202\203\204\205\206\207\210\211\212\213\214\215\216\217\220\221\222\223\224\225\226\227\230\231\232\233\234\235\236\237\240\241\242\243\244\245\246\247\250\251\252\253\254\255\256\257\260\261\262\263\264\265\266\267\270\271\272\273\274\275\276\277\300\301\302\303\304\305\306\307\310\311\312\313\314\315\316\317\320\321\322\323\324\325\326\327\330\331\332\333\334\335\336\337\340\341\342\343\344\345\346\347\350\351\352\353\354\355\356\357\360\361\362\363\364\365\366\367\370\371\372\373\374\375\376\377' '\377\376\375\374\373\372\371\370\367\366\365\364\363\362\361\360\357\356\355\354\353\352\351\350\347\346\345\344\343\342\341\340\337\336\335\334\333\332\331\330\327\326\325\324\323\322\321\320\317\316\315\314\313\312\311\310\307\306\305\304\303\302\301\300\277\276\275\274\273\272\271\270\267\266\265\264\263\262\261\260\257\256\255\254\253\252\251\250\247\246\245\244\243\242\241\240\237\236\235\234\233\232\231\230\227\226\225\224\223\222\221\220\217\216\215\214\213\212\211\210\207\206\205\204\203\202\201\200\177~}|{zyxwvutsrqponmlkjihgfedcba_^ZYXWVUTSRQPONMLKJIHGFEDCBA?>=<;:9876543210/.,+*)(&#!\037\036\035\034\033\032\031\030\027\026\025\024\023\022\021\020\017\016\010\007\006\005\004\003\002\001' 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20200) exited due to signal (Segmentation fault).
+
+
+-----------------
+54) wide trans alphabet (long file):
+     xlat '\001\002\003\004\005\006\007\010\016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037!#&()*+,./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ^_abcdefghijklmnopqrstuvwxyz{|}~\177\200\201\202\203\204\205\206\207\210\211\212\213\214\215\216\217\220\221\222\223\224\225\226\227\230\231\232\233\234\235\236\237\240\241\242\243\244\245\246\247\250\251\252\253\254\255\256\257\260\261\262\263\264\265\266\267\270\271\272\273\274\275\276\277\300\301\302\303\304\305\306\307\310\311\312\313\314\315\316\317\320\321\322\323\324\325\326\327\330\331\332\333\334\335\336\337\340\341\342\343\344\345\346\347\350\351\352\353\354\355\356\357\360\361\362\363\364\365\366\367\370\371\372\373\374\375\376\377' '\377\376\375\374\373\372\371\370\367\366\365\364\363\362\361\360\357\356\355\354\353\352\351\350\347\346\345\344\343\342\341\340\337\336\335\334\333\332\331\330\327\326\325\324\323\322\321\320\317\316\315\314\313\312\311\310\307\306\305\304\303\302\301\300\277\276\275\274\273\272\271\270\267\266\265\264\263\262\261\260\257\256\255\254\253\252\251\250\247\246\245\244\243\242\241\240\237\236\235\234\233\232\231\230\227\226\225\224\223\222\221\220\217\216\215\214\213\212\211\210\207\206\205\204\203\202\201\200\177~}|{zyxwvutsrqponmlkjihgfedcba_^ZYXWVUTSRQPONMLKJIHGFEDCBA?>=<;:9876543210/.,+*)(&#!\037\036\035\034\033\032\031\030\027\026\025\024\023\022\021\020\017\016\010\007\006\005\004\003\002\001' 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20204) exited due to signal (Segmentation fault).
+
+
+-----------------
+55) wide trans alphabet (all chars file):
+     xlat '\001\002\003\004\005\006\007\010\016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037!#&()*+,./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ^_abcdefghijklmnopqrstuvwxyz{|}~\177\200\201\202\203\204\205\206\207\210\211\212\213\214\215\216\217\220\221\222\223\224\225\226\227\230\231\232\233\234\235\236\237\240\241\242\243\244\245\246\247\250\251\252\253\254\255\256\257\260\261\262\263\264\265\266\267\270\271\272\273\274\275\276\277\300\301\302\303\304\305\306\307\310\311\312\313\314\315\316\317\320\321\322\323\324\325\326\327\330\331\332\333\334\335\336\337\340\341\342\343\344\345\346\347\350\351\352\353\354\355\356\357\360\361\362\363\364\365\366\367\370\371\372\373\374\375\376\377' '\377\376\375\374\373\372\371\370\367\366\365\364\363\362\361\360\357\356\355\354\353\352\351\350\347\346\345\344\343\342\341\340\337\336\335\334\333\332\331\330\327\326\325\324\323\322\321\320\317\316\315\314\313\312\311\310\307\306\305\304\303\302\301\300\277\276\275\274\273\272\271\270\267\266\265\264\263\262\261\260\257\256\255\254\253\252\251\250\247\246\245\244\243\242\241\240\237\236\235\234\233\232\231\230\227\226\225\224\223\222\221\220\217\216\215\214\213\212\211\210\207\206\205\204\203\202\201\200\177~}|{zyxwvutsrqponmlkjihgfedcba_^ZYXWVUTSRQPONMLKJIHGFEDCBA?>=<;:9876543210/.,+*)(&#!\037\036\035\034\033\032\031\030\027\026\025\024\023\022\021\020\017\016\010\007\006\005\004\003\002\001' 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+Managed process (20213) exited due to signal (Segmentation fault).
+
+
+-----------------
+56) wide trans alphabet (long line):
+     xlat '\001\002\003\004\005\006\007\010\016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037!#&()*+,./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ^_abcdefghijklmnopqrstuvwxyz{|}~\177\200\201\202\203\204\205\206\207\210\211\212\213\214\215\216\217\220\221\222\223\224\225\226\227\230\231\232\233\234\235\236\237\240\241\242\243\244\245\246\247\250\251\252\253\254\255\256\257\260\261\262\263\264\265\266\267\270\271\272\273\274\275\276\277\300\301\302\303\304\305\306\307\310\311\312\313\314\315\316\317\320\321\322\323\324\325\326\327\330\331\332\333\334\335\336\337\340\341\342\343\344\345\346\347\350\351\352\353\354\355\356\357\360\361\362\363\364\365\366\367\370\371\372\373\374\375\376\377' '\377\376\375\374\373\372\371\370\367\366\365\364\363\362\361\360\357\356\355\354\353\352\351\350\347\346\345\344\343\342\341\340\337\336\335\334\333\332\331\330\327\326\325\324\323\322\321\320\317\316\315\314\313\312\311\310\307\306\305\304\303\302\301\300\277\276\275\274\273\272\271\270\267\266\265\264\263\262\261\260\257\256\255\254\253\252\251\250\247\246\245\244\243\242\241\240\237\236\235\234\233\232\231\230\227\226\225\224\223\222\221\220\217\216\215\214\213\212\211\210\207\206\205\204\203\202\201\200\177~}|{zyxwvutsrqponmlkjihgfedcba_^ZYXWVUTSRQPONMLKJIHGFEDCBA?>=<;:9876543210/.,+*)(&#!\037\036\035\034\033\032\031\030\027\026\025\024\023\022\021\020\017\016\010\007\006\005\004\003\002\001' 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20220) exited due to signal (Segmentation fault).
+
+
+-----------------
+57) wide trans alphabet (very long file):
+     xlat '\001\002\003\004\005\006\007\010\016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037!#&()*+,./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ^_abcdefghijklmnopqrstuvwxyz{|}~\177\200\201\202\203\204\205\206\207\210\211\212\213\214\215\216\217\220\221\222\223\224\225\226\227\230\231\232\233\234\235\236\237\240\241\242\243\244\245\246\247\250\251\252\253\254\255\256\257\260\261\262\263\264\265\266\267\270\271\272\273\274\275\276\277\300\301\302\303\304\305\306\307\310\311\312\313\314\315\316\317\320\321\322\323\324\325\326\327\330\331\332\333\334\335\336\337\340\341\342\343\344\345\346\347\350\351\352\353\354\355\356\357\360\361\362\363\364\365\366\367\370\371\372\373\374\375\376\377' '\377\376\375\374\373\372\371\370\367\366\365\364\363\362\361\360\357\356\355\354\353\352\351\350\347\346\345\344\343\342\341\340\337\336\335\334\333\332\331\330\327\326\325\324\323\322\321\320\317\316\315\314\313\312\311\310\307\306\305\304\303\302\301\300\277\276\275\274\273\272\271\270\267\266\265\264\263\262\261\260\257\256\255\254\253\252\251\250\247\246\245\244\243\242\241\240\237\236\235\234\233\232\231\230\227\226\225\224\223\222\221\220\217\216\215\214\213\212\211\210\207\206\205\204\203\202\201\200\177~}|{zyxwvutsrqponmlkjihgfedcba_^ZYXWVUTSRQPONMLKJIHGFEDCBA?>=<;:9876543210/.,+*)(&#!\037\036\035\034\033\032\031\030\027\026\025\024\023\022\021\020\017\016\010\007\006\005\004\003\002\001' 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20228) exited due to signal (Segmentation fault).
+
+
+-----------------
+58) Translate a very long file:
+     xlat aeiou AEIOU 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20238) exited due to signal (Segmentation fault).
+
+
+-----------------
+60) Delete nonvowels (very long file):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Submitted program's stderr:
+ --- Output limited to 10 lines. (There would be too much.) ---
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+61) Translate very long file (long set2):
+     xlat aeiou AEIOUextra 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20267) exited due to signal (Segmentation fault).
+
+
+-----------------
+62) Translate very long file (long set1):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Managed process (20275) exited due to signal (Segmentation fault).
+
+
+-----------------
+63) Translate very long file (empty set1):
+     xlat '' aeiou 
+-----------------
+Program exited with bad status: 255
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---

@@ -1,0 +1,64 @@
+TARGET   = mush
+CC       = gcc
+CCFLAGS  = -std=c89 -pedantic -Wall -Werror -ansi -g -ansi
+LDFLAGS  = -lm
+SOURCES  = $(wildcard *.c)
+INCLUDES = $(wildcard *.h)
+OBJECTS  = $(SOURCES:.c=.o)
+
+all:$(TARGET)
+
+$(TARGET):$(OBJECTS)
+	$(CC) -o $(TARGET) $(LDFLAGS) $(OBJECTS)
+
+$(OBJECTS):$(SOURCES) $(INCLUDES)
+	$(CC) -c $(CCFLAGS) $(SOURCES)
+
+clean:
+	rm -f $(TARGET) $(OBJECTS)
+
+
+SHELL = /bin/sh
+
+SUBDIRS = src
+
+LIBS = lib lib64
+
+all:
+	@if [ -n "$(SUBDIRS)" ]; then \
+		for dir in $(SUBDIRS) ; do $(MAKE) -C $$dir $@; done;\
+	fi
+
+clean:	localclean
+	@if [ -n "$(SUBDIRS)" ]; then \
+		for dir in $(SUBDIRS) ; do $(MAKE) -C $$dir $@; done;\
+	fi
+
+allclean: localclean
+	@if [ -n "$(SUBDIRS)" ]; then \
+		for dir in $(SUBDIRS) ; do $(MAKE) -C $$dir $@; done;\
+	fi
+	rm -rf $(LIBS)
+
+localclean:
+	rm -f *~
+
+
+
+
+CC = gcc
+
+CFLAGS = -Wall -g -Og
+
+all: mush2
+#gcc -g -Wall -I ~pn-cs357/Given/Mush/include -o main.o main.c
+#gcc -g -Wall -L ~pn-cs357/Given/Mush/lib64 -o mush2 main.o -lmush
+#gcc -o mush2 main.o -L. lmush
+mush2: main.o
+	$(CC) -o $@ $(CFLAGS) main.o 
+
+main.o: main.c 
+
+clean:
+	-rm mush2 *~
+

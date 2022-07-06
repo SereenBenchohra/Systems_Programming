@@ -1,0 +1,3 @@
+Test that htCreate asserts when sizes in the array of sizes are not
+strictly ascending (increasing) values - in this test a size is equal
+to the immediately previous size.

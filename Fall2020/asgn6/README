@@ -1,0 +1,10 @@
+Sereen Benchohra(sbenchoh)
+
+status: Not finished (did not build)
+
+
+run make and build ./mush and the shell will start
+
+the shell would parse the command line and run and exec the commands.
+
+

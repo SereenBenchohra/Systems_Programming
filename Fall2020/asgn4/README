@@ -1,0 +1,31 @@
+#Assignment 04 - Sereen Benchohra (sbenchoh)
+
+##Compiling the Running the  Program
+   1. To compile the program, enter the command "make".
+   2. The general format to run the progeam is "mytar [ctxvS]f tarfile [ path [ ... ] ]"
+   3. To run the program, the commands vary based on the desired action: Creating , Tabling, and Extracting the Archive File
+
+##Creating the Archive File 
+   1. To create the Archive, use "mytar cf tarfile [path]"
+   2. To see the verbose version use "mytar cvf tarfile" which allows you to see
+    The file then lists all of Directories subdirectories in alphabetical order.
+
+
+
+##Tabling the Archive File
+   1. To table the Archive, use "mytar tf tarfile"
+   2. The file then lists all of Directories subdirectories in alphabetical order
+   3. To see the verbose version use "mytar tvf tarfile" which allows you to see
+    the file in more detail like the permission the group and user ID, the date
+    and time.
+
+
+
+##Extracting 
+   1. To create the Archive, use "mytar xf tarfile [path]"
+   2. To see the verbose version use "mytar xvf tarfile" which allows you to see
+    The file then lists all of Directories subdirectories in alphabetical order.
+
+
+Status: Passed All the Tests Successfully
+

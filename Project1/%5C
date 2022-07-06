@@ -1,0 +1,92 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "game.h"
+
+void IsItEqual(char *guess)
+{
+   // if the string matches the positon and guess 
+   int isEqual = strcmp(guess, "LOL");
+   if(isEqual == 0)
+   {
+      printf("you guessed in _ guesses - Well done!");
+      exit(EXIT_SUCCESS);
+   }
+
+   printf("YOU FAILED!");
+}
+
+void ExactGuesses(char *combo, char *guess)
+{
+  
+  int ExactGuessesCount= 0;
+  int length = strlen(combo) + 1;
+  int i; 
+  for(i = 0; i < length; i++)
+  {
+     if(guess[i] == combo[i])
+       {
+          ExactGuessesCount++;
+          guess[i] = '1';
+          combo[i] = '1';
+       }
+
+  }
+
+   printf("Guess : %s, Combo: %s, Exact: %d", guess, combo, ExactGuessesCount);
+}
+
+void InExactGuesses(char *combo, char *guess)
+{
+
+  int inExactGuessCount = 0;
+  int length = strlen(combo) + 1;
+  int i;
+  int j;
+
+  for(i = 0; i < length; i++)
+  {
+      for(j = 0; i < length; j++)
+      {
+         if((guess[i] == combo[j]) && (combo[j] != '1' || guess[i] != '1'))
+         {
+           inExactGuessCount++;
+fprintf(stderr, "Before Guess \n");           
+           guess[i] = '1';
+fprintf(stderr, "After Guess \n");           
+           guess[i] = '1';
+           combo[j] = '1';
+         }
+      }
+
+  }
+
+  printf("Guess : %s, Combo: %s, Inexact: %d", guess, combo, inExactGuessCount);
+}
+
+int main()
+{
+   
+  char guess[8]; 
+  guess[0] = 'C';
+  guess[1] = 'B';
+  guess[2] = 'C';
+  guess[3] = 'C';
+  guess[4] = 0;
+
+  char combo[8];
+  combo[0] = 'B';
+  combo[1] = 'D';
+  combo[2] = 'C';
+  combo[3] = 'C';
+  combo[4] = 0; // use int numPos
+
+
+
+  ExactGuesses(combo, guess);
+  InExactGuesses(combo, guess);
+       
+   return 0;
+}
+
+

@@ -1,0 +1,2 @@
+Tests swc with a unique combination of three correct flags reading from
+either stdin or a file.

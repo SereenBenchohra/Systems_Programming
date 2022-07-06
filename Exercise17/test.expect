@@ -1,0 +1,14 @@
+BEFORE SORT:
+   Word[  0]: freq  9,  8 bytes, hex: 28 52 c8 17 05 5b 99 bb
+   Word[  1]: freq  5,  8 bytes, hex: 76 a5 62 e8 74 00 1b f3
+   Word[  2]: freq 10, 12 bytes, hex: 5f 28 66 d1 29 c3 a3 b6 00 cd 69 a7
+   Word[  3]: freq  8,  9 bytes, hex: bf 24 0e d8 e0 05 75 d6 2a
+   Word[  4]: freq  2, 13 bytes, hex: 9f 58 db 93 63 ca 72 31 44 35 74 67 6c
+
+AFTER SORT:
+   Word[  0]: freq 10, 12 bytes, hex: 5f 28 66 d1 29 c3 a3 b6 00 cd 69 a7
+   Word[  1]: freq  9,  8 bytes, hex: 28 52 c8 17 05 5b 99 bb
+   Word[  2]: freq  8,  9 bytes, hex: bf 24 0e d8 e0 05 75 d6 2a
+   Word[  3]: freq  5,  8 bytes, hex: 76 a5 62 e8 74 00 1b f3
+   Word[  4]: freq  2, 13 bytes, hex: 9f 58 db 93 63 ca 72 31 44 35 74 67 6c
+

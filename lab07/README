@@ -1,0 +1,12 @@
+Sereen Benchohra(sbenchoh)
+
+To compile the program, run the Makefile as "make" in the terminal  which compiles both forkit and tryit programs. 
+Once the program is compiled. You can run either program.
+   -To run forkit type "./forkit" in the terminal and results are displayed in stdout
+   -To run tryit type "./tryit [command]" in the terminal.
+
+   -forkit displays a "Hello world" and report whe there is a parent or child along with their process id.
+   -tryit given a command executes the given command and reports on whether it was a success or not returning the child status.
+
+
+   Status: forkit work as intend, tryit works in the general case, does not report the process id or if it failed.

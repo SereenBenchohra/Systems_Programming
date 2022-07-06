@@ -1,0 +1,735 @@
+
+------------------------
+Looking for source files
+------------------------
+
+Found: functions.c functions.h xlat.c
+
+--------------------------------
+Checking for long lines (no program should have any lines > 80 chars)
+(run ~pnico/bin/longlines.pl on your files to check.)
+--------------------------------
+
+Line length ok.
+
+
+------------------------------------
+Building the application: "gcc -ansi -pedantic -Wall -o xlat functions.c xlat.c"
+------------------------------------
+
+gcc -ansi -pedantic -Wall -o xlat functions.c xlat.c
+
+---------------
+checking for executables
+---------------
+
+
+------------------------
+Running the application 
+------------------------
+
+   =======================================================================
+  Test                                                          Status
+       Cmd: Prog Arguments                                
+   =======================================================================
+  1 -- Usage:                                                           ok.
+       Cmd: xlat -h                                       
+  2 -- Usage: too few args (trans)                                      ok.
+       Cmd: xlat abcde                                    
+  3 -- Usage: too many args (trans)                                     ok.
+       Cmd: xlat -c abcde abcde extra                     
+  4 -- Usage: too few args (delete)                                     ok.
+       Cmd: xlat -d                                       
+  5 -- Usage: too many args (delete)                                    ok.
+       Cmd: xlat -d abcde 12345                           
+  6 -- Usage: Complement not delete                                     ok.
+       Cmd: xlat -c abcde abcde                           
+  7 -- Translate a short file                                           ok.
+       Cmd: xlat aeiou AEIOU < Inputs/shortfile           
+  8 -- Delete vowels (short file)                                       ok.
+       Cmd: xlat -d aeiouAEIOU < Inputs/shortfile         
+  9 -- Delete nonvowels (short file)                                FAILED.
+       Cmd: xlat -d -c aeiouAEIOU < Inputs/shortfile      
+ 10 -- Translate a long file                                            ok.
+       Cmd: xlat aeiou AEIOU < Inputs/longfile            
+ 11 -- Delete vowels (long file)                                        ok.
+       Cmd: xlat -d aeiouAEIOU < Inputs/longfile          
+ 12 -- Delete nonvowels (long file)                                 FAILED.
+       Cmd: xlat -d -c aeiouAEIOU < Inputs/longfile       
+ 13 -- Translate a all chars file                                       ok.
+       Cmd: xlat aeiou AEIOU < Inputs/allchars            
+ 14 -- Delete vowels (all chars file)                                   ok.
+       Cmd: xlat -d aeiouAEIOU < Inputs/allchars          
+ 15 -- Delete nonvowels (all chars file)                            FAILED.
+       Cmd: xlat -d -c aeiouAEIOU < Inputs/allchars       
+ 16 -- Translate a long line                                            ok.
+       Cmd: xlat aeiou AEIOU < Inputs/verylongline        
+ 17 -- Delete vowels (long line)                                        ok.
+       Cmd: xlat -d aeiouAEIOU < Inputs/verylongline      
+ 18 -- Delete nonvowels (long line)                                 FAILED.
+       Cmd: xlat -d -c aeiouAEIOU < Inputs/verylongline   
+ 19 -- Translate a short (long set2)                                    ok.
+       Cmd: xlat aeiou AEIOUextra < Inputs/shortfile      
+ 20 -- Translate a long (long set2)                                     ok.
+       Cmd: xlat aeiou AEIOUextra < Inputs/longfile       
+ 21 -- Translate a all chars (long set2)                                ok.
+       Cmd: xlat aeiou AEIOUextra < Inputs/allchars       
+ 22 -- Translate a long line (long set2)                                ok.
+       Cmd: xlat aeiou AEIOUextra < Inputs/verylongline   
+ 23 -- Translate a short (long set2)                                FAILED.
+       Cmd: xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A < Inputs/shortfile 
+ 24 -- Translate a long (long set2)                                 FAILED.
+       Cmd: xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A < Inputs/longfile 
+ 25 -- Translate a all chars (long set2)                            FAILED.
+       Cmd: xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A < Inputs/allchars 
+ 26 -- Translate a long line (long set2)                            FAILED.
+       Cmd: xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A < Inputs/verylongline 
+ 27 -- Translate a short (empty set1)                                   ok.
+       Cmd: xlat '' aeiou < Inputs/shortfile              
+ 28 -- Translate a long (empty set1)                                    ok.
+       Cmd: xlat '' aeiou < Inputs/longfile               
+ 29 -- Translate a all chars (empty set1)                               ok.
+       Cmd: xlat '' aeiou < Inputs/allchars               
+ 30 -- Translate a long line (empty set1)                               ok.
+       Cmd: xlat '' aeiou < Inputs/verylongline           
+ 31 -- Translate a short (empty set2)                               FAILED.
+       Cmd: xlat aeiou '' < Inputs/shortfile              
+ 32 -- Translate a long (empty set2)                                FAILED.
+       Cmd: xlat aeiou '' < Inputs/longfile               
+ 33 -- Translate a all chars (empty set2)                           FAILED.
+       Cmd: xlat aeiou '' < Inputs/allchars               
+ 34 -- Translate a long line (empty set2)                           FAILED.
+       Cmd: xlat aeiou '' < Inputs/verylongline           
+ 35 -- Translate a short (repeats set1)                             FAILED.
+       Cmd: xlat abcabc aeioux < Inputs/shortfile         
+ 36 -- Translate a long (repeats set1)                              FAILED.
+       Cmd: xlat abcabc aeioux < Inputs/longfile          
+ 37 -- Translate a all chars (repeats set1)                         FAILED.
+       Cmd: xlat abcabc aeioux < Inputs/allchars          
+ 38 -- Translate a long line (repeats set1)                         FAILED.
+       Cmd: xlat abcabc aeioux < Inputs/verylongline      
+ 39 -- Translate a short (repeats)                                      ok.
+       Cmd: xlat abcabc aaaaaa < Inputs/shortfile         
+ 40 -- Translate a long (repeats)                                       ok.
+       Cmd: xlat abcabc aaaaaa < Inputs/longfile          
+ 41 -- Translate a all chars (repeats)                                  ok.
+       Cmd: xlat abcabc aaaaaa < Inputs/allchars          
+ 42 -- Translate a long line (repeats)                                  ok.
+       Cmd: xlat abcabc aaaaaa < Inputs/verylongline      
+ 43 -- newlines in set1 (short file)                                    ok.
+       Cmd: xlat 'abc\012def' xxxxxxx < Inputs/shortfile  
+ 44 -- newlines in set1 (long file)                                     ok.
+       Cmd: xlat 'abc\012def' xxxxxxx < Inputs/longfile   
+ 45 -- newlines in set1 (all chars file)                                ok.
+       Cmd: xlat 'abc\012def' xxxxxxx < Inputs/allchars   
+ 46 -- newlines in set1 (long line)                                     ok.
+       Cmd: xlat 'abc\012def' xxxxxxx < Inputs/verylongline 
+ 47 -- newlines in set1 (very long file)                                ok.
+       Cmd: xlat 'abc\012def' xxxxxxx < Inputs/verylongfile 
+ 48 -- newlines in set2 (short file)                                    ok.
+       Cmd: xlat xxxxxxx 'abc\012def' < Inputs/shortfile  
+ 49 -- newlines in set2 (long file)                                 FAILED.
+       Cmd: xlat xxxxxxx 'abc\012def' < Inputs/longfile   
+ 50 -- newlines in set2 (all chars file)                            FAILED.
+       Cmd: xlat xxxxxxx 'abc\012def' < Inputs/allchars   
+ 51 -- newlines in set2 (long line)                                 FAILED.
+       Cmd: xlat xxxxxxx 'abc\012def' < Inputs/verylongline 
+ 52 -- newlines in set2 (very long file)                            FAILED.
+       Cmd: xlat xxxxxxx 'abc\012def' < Inputs/verylongfile 
+ 53 -- wide trans alphabet (short file)                                 ok.
+       Cmd: xlat '\001\002\003\004\005\006\007\010\016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037!#&()*+,./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ^_abcdefghijklmnopqrstuvwxyz{|}~\177\200\201\202\203\204\205\206\207\210\211\212\213\214\215\216\217\220\221\222\223\224\225\226\227\230\231\232\233\234\235\236\237\240\241\242\243\244\245\246\247\250\251\252\253\254\255\256\257\260\261\262\263\264\265\266\267\270\271\272\273\274\275\276\277\300\301\302\303\304\305\306\307\310\311\312\313\314\315\316\317\320\321\322\323\324\325\326\327\330\331\332\333\334\335\336\337\340\341\342\343\344\345\346\347\350\351\352\353\354\355\356\357\360\361\362\363\364\365\366\367\370\371\372\373\374\375\376\377' '\377\376\375\374\373\372\371\370\367\366\365\364\363\362\361\360\357\356\355\354\353\352\351\350\347\346\345\344\343\342\341\340\337\336\335\334\333\332\331\330\327\326\325\324\323\322\321\320\317\316\315\314\313\312\311\310\307\306\305\304\303\302\301\300\277\276\275\274\273\272\271\270\267\266\265\264\263\262\261\260\257\256\255\254\253\252\251\250\247\246\245\244\243\242\241\240\237\236\235\234\233\232\231\230\227\226\225\224\223\222\221\220\217\216\215\214\213\212\211\210\207\206\205\204\203\202\201\200\177~}|{zyxwvutsrqponmlkjihgfedcba_^ZYXWVUTSRQPONMLKJIHGFEDCBA?>=<;:9876543210/.,+*)(&#!\037\036\035\034\033\032\031\030\027\026\025\024\023\022\021\020\017\016\010\007\006\005\004\003\002\001' < Inputs/shortfile 
+ 54 -- wide trans alphabet (long file)                                  ok.
+       Cmd: xlat '\001\002\003\004\005\006\007\010\016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037!#&()*+,./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ^_abcdefghijklmnopqrstuvwxyz{|}~\177\200\201\202\203\204\205\206\207\210\211\212\213\214\215\216\217\220\221\222\223\224\225\226\227\230\231\232\233\234\235\236\237\240\241\242\243\244\245\246\247\250\251\252\253\254\255\256\257\260\261\262\263\264\265\266\267\270\271\272\273\274\275\276\277\300\301\302\303\304\305\306\307\310\311\312\313\314\315\316\317\320\321\322\323\324\325\326\327\330\331\332\333\334\335\336\337\340\341\342\343\344\345\346\347\350\351\352\353\354\355\356\357\360\361\362\363\364\365\366\367\370\371\372\373\374\375\376\377' '\377\376\375\374\373\372\371\370\367\366\365\364\363\362\361\360\357\356\355\354\353\352\351\350\347\346\345\344\343\342\341\340\337\336\335\334\333\332\331\330\327\326\325\324\323\322\321\320\317\316\315\314\313\312\311\310\307\306\305\304\303\302\301\300\277\276\275\274\273\272\271\270\267\266\265\264\263\262\261\260\257\256\255\254\253\252\251\250\247\246\245\244\243\242\241\240\237\236\235\234\233\232\231\230\227\226\225\224\223\222\221\220\217\216\215\214\213\212\211\210\207\206\205\204\203\202\201\200\177~}|{zyxwvutsrqponmlkjihgfedcba_^ZYXWVUTSRQPONMLKJIHGFEDCBA?>=<;:9876543210/.,+*)(&#!\037\036\035\034\033\032\031\030\027\026\025\024\023\022\021\020\017\016\010\007\006\005\004\003\002\001' < Inputs/longfile 
+ 55 -- wide trans alphabet (all chars file)                         FAILED.
+       Cmd: xlat '\001\002\003\004\005\006\007\010\016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037!#&()*+,./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ^_abcdefghijklmnopqrstuvwxyz{|}~\177\200\201\202\203\204\205\206\207\210\211\212\213\214\215\216\217\220\221\222\223\224\225\226\227\230\231\232\233\234\235\236\237\240\241\242\243\244\245\246\247\250\251\252\253\254\255\256\257\260\261\262\263\264\265\266\267\270\271\272\273\274\275\276\277\300\301\302\303\304\305\306\307\310\311\312\313\314\315\316\317\320\321\322\323\324\325\326\327\330\331\332\333\334\335\336\337\340\341\342\343\344\345\346\347\350\351\352\353\354\355\356\357\360\361\362\363\364\365\366\367\370\371\372\373\374\375\376\377' '\377\376\375\374\373\372\371\370\367\366\365\364\363\362\361\360\357\356\355\354\353\352\351\350\347\346\345\344\343\342\341\340\337\336\335\334\333\332\331\330\327\326\325\324\323\322\321\320\317\316\315\314\313\312\311\310\307\306\305\304\303\302\301\300\277\276\275\274\273\272\271\270\267\266\265\264\263\262\261\260\257\256\255\254\253\252\251\250\247\246\245\244\243\242\241\240\237\236\235\234\233\232\231\230\227\226\225\224\223\222\221\220\217\216\215\214\213\212\211\210\207\206\205\204\203\202\201\200\177~}|{zyxwvutsrqponmlkjihgfedcba_^ZYXWVUTSRQPONMLKJIHGFEDCBA?>=<;:9876543210/.,+*)(&#!\037\036\035\034\033\032\031\030\027\026\025\024\023\022\021\020\017\016\010\007\006\005\004\003\002\001' < Inputs/allchars 
+ 56 -- wide trans alphabet (long line)                                  ok.
+       Cmd: xlat '\001\002\003\004\005\006\007\010\016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037!#&()*+,./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ^_abcdefghijklmnopqrstuvwxyz{|}~\177\200\201\202\203\204\205\206\207\210\211\212\213\214\215\216\217\220\221\222\223\224\225\226\227\230\231\232\233\234\235\236\237\240\241\242\243\244\245\246\247\250\251\252\253\254\255\256\257\260\261\262\263\264\265\266\267\270\271\272\273\274\275\276\277\300\301\302\303\304\305\306\307\310\311\312\313\314\315\316\317\320\321\322\323\324\325\326\327\330\331\332\333\334\335\336\337\340\341\342\343\344\345\346\347\350\351\352\353\354\355\356\357\360\361\362\363\364\365\366\367\370\371\372\373\374\375\376\377' '\377\376\375\374\373\372\371\370\367\366\365\364\363\362\361\360\357\356\355\354\353\352\351\350\347\346\345\344\343\342\341\340\337\336\335\334\333\332\331\330\327\326\325\324\323\322\321\320\317\316\315\314\313\312\311\310\307\306\305\304\303\302\301\300\277\276\275\274\273\272\271\270\267\266\265\264\263\262\261\260\257\256\255\254\253\252\251\250\247\246\245\244\243\242\241\240\237\236\235\234\233\232\231\230\227\226\225\224\223\222\221\220\217\216\215\214\213\212\211\210\207\206\205\204\203\202\201\200\177~}|{zyxwvutsrqponmlkjihgfedcba_^ZYXWVUTSRQPONMLKJIHGFEDCBA?>=<;:9876543210/.,+*)(&#!\037\036\035\034\033\032\031\030\027\026\025\024\023\022\021\020\017\016\010\007\006\005\004\003\002\001' < Inputs/verylongline 
+ 57 -- wide trans alphabet (very long file)                             ok.
+       Cmd: xlat '\001\002\003\004\005\006\007\010\016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037!#&()*+,./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ^_abcdefghijklmnopqrstuvwxyz{|}~\177\200\201\202\203\204\205\206\207\210\211\212\213\214\215\216\217\220\221\222\223\224\225\226\227\230\231\232\233\234\235\236\237\240\241\242\243\244\245\246\247\250\251\252\253\254\255\256\257\260\261\262\263\264\265\266\267\270\271\272\273\274\275\276\277\300\301\302\303\304\305\306\307\310\311\312\313\314\315\316\317\320\321\322\323\324\325\326\327\330\331\332\333\334\335\336\337\340\341\342\343\344\345\346\347\350\351\352\353\354\355\356\357\360\361\362\363\364\365\366\367\370\371\372\373\374\375\376\377' '\377\376\375\374\373\372\371\370\367\366\365\364\363\362\361\360\357\356\355\354\353\352\351\350\347\346\345\344\343\342\341\340\337\336\335\334\333\332\331\330\327\326\325\324\323\322\321\320\317\316\315\314\313\312\311\310\307\306\305\304\303\302\301\300\277\276\275\274\273\272\271\270\267\266\265\264\263\262\261\260\257\256\255\254\253\252\251\250\247\246\245\244\243\242\241\240\237\236\235\234\233\232\231\230\227\226\225\224\223\222\221\220\217\216\215\214\213\212\211\210\207\206\205\204\203\202\201\200\177~}|{zyxwvutsrqponmlkjihgfedcba_^ZYXWVUTSRQPONMLKJIHGFEDCBA?>=<;:9876543210/.,+*)(&#!\037\036\035\034\033\032\031\030\027\026\025\024\023\022\021\020\017\016\010\007\006\005\004\003\002\001' < Inputs/verylongfile 
+ 58 -- Translate a very long file                                       ok.
+       Cmd: xlat aeiou AEIOU < Inputs/verylongfile        
+ 59 -- Delete vowels (very long file)                                   ok.
+       Cmd: xlat -d aeiouAEIOU < Inputs/verylongfile      
+ 60 -- Delete nonvowels (very long file)                            FAILED.
+       Cmd: xlat -d -c aeiouAEIOU < Inputs/verylongfile   
+ 61 -- Translate very long file (long set2)                             ok.
+       Cmd: xlat aeiou AEIOUextra < Inputs/verylongfile   
+ 62 -- Translate very long file (long set1)                         FAILED.
+       Cmd: xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A < Inputs/verylongfile 
+ 63 -- Translate very long file (empty set1)                            ok.
+       Cmd: xlat '' aeiou < Inputs/verylongfile           
+ 64 -- Translate very long file (empty set2)                        FAILED.
+       Cmd: xlat aeiou '' < Inputs/verylongfile           
+ 65 -- Translate very long file (repeats set1)                      FAILED.
+       Cmd: xlat abcabc aeioux < Inputs/verylongfile      
+ 66 -- Translate very long file (repeats)                               ok.
+       Cmd: xlat abcabc aaaaaa < Inputs/verylongfile      
+ 67 -- Translate an empty file                                          ok.
+       Cmd: xlat aeiou AEIOU < Inputs/empty               
+ 68 -- Delete vowels from an empty file                                 ok.
+       Cmd: xlat -d aeiouAEIOU < Inputs/empty             
+ 69 -- Delete all from a short file                                 FAILED.
+       Cmd: xlat -d -c '' < Inputs/shortfile              
+ 70 -- Delete all from a long file                                  FAILED.
+       Cmd: xlat -d -c '' < Inputs/longfile               
+ 71 -- Delete all from an all chars file                            FAILED.
+       Cmd: xlat -d -c '' < Inputs/allchars               
+ 72 -- Delete all from a long line file                             FAILED.
+       Cmd: xlat -d -c '' < Inputs/verylongline           
+   =======================================================================
+Failure. (43/72 passed)
+
+Actual ouput from tests and detailed results are below.
+
+
+
+-----------------
+9) Delete nonvowels (short file):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+Submitted program's stderr:
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+12) Delete nonvowels (long file):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Submitted program's stderr:
+ --- Output limited to 10 lines. (There would be too much.) ---
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+15) Delete nonvowels (all chars file):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+Submitted program's stderr:
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+18) Delete nonvowels (long line):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Submitted program's stderr:
+ --- Output limited to 10 lines. (There would be too much.) ---
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+23) Translate a short (long set2):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Test program output:
+sUMA MA A =TPh HRMRTTPTATMRJ ORT-EMRT OMET.  sUAT'A MT.  eOPMRJ, TU?
+Diffs: ( < Reference > Submitted ):
+1c1
+< AAAA AA A AAAA AAAAAAAAAAAAA AAA-AAAA AAAA.  AAAA'A AA.  AAAAAA, AA?
+---
+> sUMA MA A =TPh HRMRTTPTATMRJ ORT-EMRT OMET.  sUAT'A MT.  eOPMRJ, TU?
+
+
+-----------------
+24) Translate a long (long set2):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+/cmcsbl h. sOwR TUT lA^@^@MT-cOET^M
+^M
+mEMAT wAA ^@TJMRRMRJ TO JTT =TPh TMPTU OO AMTTMRJ ^@h UTP AMATTP OR TUT^M
+^@AR_, ARU OO UA=MRJ ROTUMRJ TO UO: ORAT OP TwMAT AUT UAU RTTRTU MRTO TUT^M
+^@OO_ UTP AMATTP wAA PTAUMRJ, ^@HT MT UAU RO RMATHPTA OP AOR=TPAATMORA MR^M
+MT, 'ARU wUAT MA TUT HAT OO A ^@OO_,' TUOHJUT mEMAT 'wMTUOHT RMATHPTA OP^M
+AOR=TPAATMOR?'^M
+^M
+/O AUT wAA AORAMUTPMRJ MR UTP OwR RMRU (AA wTEE AA AUT AOHEU, OOP TUT^M
+UOT UAh RAUT UTP OTTE =TPh AETTRh ARU ATHRMU), wUTTUTP TUT RETAAHPT^M
+/home/pnico/bin/iolimit.Linux.x86_64: output line limit (10) exceeded.
+Diffs: ( < Reference > Submitted ):
+ --- Output limited to 10 lines. (There would be too much.) ---
+Binary files /home/pn-cs357/lib/asgn1//Tests/Expected/24 and testxlat.5936 differ
+
+
+-----------------
+25) Translate a all chars (long set2):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Test program output:
+^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@me/sbenchoh/.local/shaWe/a[\]^_`A^@AUTOJUMP_ERROR_PATH=w/ho{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?Diffs: ( < Reference > Submitted ):
+Binary files /home/pn-cs357/lib/asgn1//Tests/Expected/25 and testxlat.5936 differ
+
+
+-----------------
+26) Translate a long line (long set2):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+mAPUHA	mAPOR	m^@A^@A	A^@AA_	A^@AOT	A^@ARUOR	A^@ARUORTU	A^@ARUORMRJ	A^@ARUORRTRT	A^@ARUORA	A^@AAT	A^@AATU	A^@AATRTRT	A^@AATRTRTA	A^@AATA	A^@AAU	A^@AAUTU	A^@AAUTA	A^@AAUMRJ	A^@AAMRJ	A^@ATT	A^@ATTU	A^@ATTRTRT	A^@ATTRTRTA	A^@ATTP	A^@ATTA	A^@ATMRJ	m^@^@A	A^@^@T	A^@^@Th	A^@^@ThA	A^@^@OT	A^@^@OTA	m^@^@OTT	A^@^@PT=MATT	A^@^@PT=MATTU	A^@^@PT=MATTA	A^@^@PT=MATMRJ	A^@^@PT=MATMOR	A^@^@PT=MATMORA	m^@^@h	A^@UORTR	A^@UORTRA	A^@UORMRAE	A^@UHAT	A^@UHATTU	A^@UHATMOR	A^@UHATMORA	A^@UHATOP	A^@UHATOPA	A^@UHATA	m^@T	A^@TU	m^@TE	m^@TEMAR	m^@TEAOR	m^@TPUTTR	m^@TPRATUh	A^@TPPART	A^@TPPATMOR	A^@TPPATMORA	A^@TT	A^@TTA	A^@TTTTU	A^@TTTTP	A^@TTTMRJ	A^@ThARAT	A^@UOP	A^@UOPPTU	A^@UOPPTRT	A^@UOPPTP	A^@UOPPMRJ	A^@UOPA	A^@MUT	A^@MUTU	A^@MUTA	A^@MUMRJ	m^@MUPAR	m^@MJAME	m^@METRT	A^@MEMTMTA	A^@MEMTh	A^@PTAT	A^@PTATMOR	A^@PTATMORA	A^@PTATEh	A^@PTATRTAA	A^@PHPT	A^@PHPTU	A^@PHPTA	A^@PHPMRJ	A^@EATT	A^@EATTU	A^@EATTA	A^@EATMRJ	A^@EATMOR	A^@EATM=T	A^@EAoT	A^@ET	A^@ETP	A^@ETAT	A^@Eh	m^@RTP	A^@ROPRAE	A^@ROPRAEMTMTA	A^@ROPRAEMTh	A^@ROPRAEEh	m^@O	A^@OAPU	A^@OUT	A^@OUTA	A^@OEMAU	A^@OEMAUTU	A^@OEMAUTP	A^@OEMAUTPA	A^@OEMAUTA	A^@OEMAUMRJ	A^@OEMAURTRT	A^@OEMAURTRTA	A^@OEMTMOR	A^@OEMTMORMAT	A^@OEMTMORMATA	A^@ORMRA^@ET	A^@ORMRATT	A^@OPMJMRAE	A^@OPMJMRT	A^@OPMJMRTA	A^@OPT	A^@OPTTU	A^@OPTMRJ	A^@OPTMOR	A^@OPTMORA	A^@OPTM=T	A^@OPTM=TEh	A^@OPTA	m^@OA	A^@OHRU	A^@OHRUTU	A^@OHRUMRJ	A^@OHRUA	A^@OHT	A^@O=T	A^@O=T^@OAPU	A^@O=TJPOHRU	A^@O=TRTRTMORTU	A^@PAUT	A^@PAUTU	A^@PAUTA	A^@PAUMRJ	m^@PAUAR	m^@PAR	m^@PARA	m^@PARAOR	A^@PAAMOR	A^@PAAMORA	A^@PAAM=T	A^@PTAATMOR	A^@PTAATMORA	A^@PTAAT	A^@PMUJT	A^@PMUJTU	A^@PMUJTA	A^@PMUJMRJ	A^@PMUJRTRT	A^@POAU	A^@POJATT	A^@POJATTU	A^@POJATTA	A^@POJATMRJ	A^@PHRT	A^@PHRTEh	A^@PHRTRTAA	A^@AATAA	A^@AATAATU	A^@AATAATA	A^@AAMAAA	A^@AAMAAAA	A^@AAORU	A^@AAORUTU	A^@AAORUMRJ	A^@AAORUA	A^@ATRAT	A^@ATRATA	A^@ATRT	A^@ATRTTU	A^@ATRTTT	A^@ATRTTTMAR	A^@ATRTTTA	A^@ATRTMA	A^@ATRTMRJ	A^@ATRTEh	A^@ATRTRMRUTU	A^@ATRTA	A^@AMRTUT	A^@AOEHTT	A^@AOEHTTEh	A^@AOEHTTRTAA	A^@AOEHTTA	A^@AOEHTMOR	A^@AOE=T	A^@AOE=TU	A^@AOE=TA	A^@AOE=MRJ	A^@AOP^@	A^@AOP^@TU	A^@AOP^@TRAh	A^@AOP^@TRT/home/pnico/bin/iolimit.Linux.x86_64: output character limit (2048) exceeded.
+Diffs: ( < Reference > Submitted ):
+ --- Output limited to 10 lines. (There would be too much.) ---
+Binary files /home/pn-cs357/lib/asgn1//Tests/Expected/26 and testxlat.5936 differ
+
+
+-----------------
+31) Translate a short (empty set2): 
+     xlat aeiou '' 
+-----------------
+ This test was expected to fail, but reports success.
+ Perhaps a bad exit status or no error message?
+
+
+-----------------
+32) Translate a long (empty set2): 
+     xlat aeiou '' 
+-----------------
+ This test was expected to fail, but reports success.
+ Perhaps a bad exit status or no error message?
+
+
+-----------------
+33) Translate a all chars (empty set2): 
+     xlat aeiou '' 
+-----------------
+ This test was expected to fail, but reports success.
+ Perhaps a bad exit status or no error message?
+
+
+-----------------
+34) Translate a long line (empty set2): 
+     xlat aeiou '' 
+-----------------
+ This test was expected to fail, but reports success.
+ Perhaps a bad exit status or no error message?
+
+
+-----------------
+35) Translate a short (repeats set1):
+     xlat abcabc aeioux 
+-----------------
+Test program output:
+This is a very uninteresting one-line file.  That's it.  Boring, eh?
+Diffs: ( < Reference > Submitted ):
+1c1
+< This is o very uninteresting one-line file.  Thot's it.  Boring, eh?
+---
+> This is a very uninteresting one-line file.  That's it.  Boring, eh?
+
+
+-----------------
+36) Translate a long (repeats set1):
+     xlat abcabc aeioux 
+-----------------
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+CHAPTER I. Down the Raeeit-Hole^M
+^M
+Aliie was eeginning to get very tired of sitting ey her sister on the^M
+eank, and of having nothing to do: onie or twiie she had peeped into the^M
+eook her sister was reading, eut it had no piitures or ionversations in^M
+it, 'and what is the use of a eook,' thought Aliie 'without piitures or^M
+ionversation?'^M
+^M
+So she was ionsidering in her own mind (as well as she iould, for the^M
+hot day made her feel very sleepy and stupid), whether the pleasure^M
+/home/pnico/bin/iolimit.Linux.x86_64: output line limit (10) exceeded.
+Diffs: ( < Reference > Submitted ):
+ --- Output limited to 10 lines. (There would be too much.) ---
+1c1
+< CHAPTER I. Down the Rouuit-Hole^M
+---
+> CHAPTER I. Down the Raeeit-Hole^M
+3,32c3,32
+< Alixe wos ueginning to get very tired of sitting uy her sister on the^M
+< uonk, ond of hoving nothing to do: onxe or twixe she hod peeped into the^M
+< uook her sister wos reoding, uut it hod no pixtures or xonversotions in^M
+< it, 'ond whot is the use of o uook,' thought Alixe 'without pixtures or^M
+< xonversotion?'^M
+/home/pnico/bin/iolimit.Linux.x86_64: output line limit (10) exceeded.
+
+
+-----------------
+37) Translate a all chars (repeats set1):
+     xlat abcabc aeioux 
+-----------------
+Test program output:
+^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`aeidefghijklmnopqrstuvwxyz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?Diffs: ( < Reference > Submitted ):
+Binary files /home/pn-cs357/lib/asgn1//Tests/Expected/37 and testxlat.5936 differ
+
+
+-----------------
+38) Translate a long line (repeats set1):
+     xlat abcabc aeioux 
+-----------------
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Aarhus	Aaron	Aeaea	aeaik	aeaft	aeandon	aeandoned	aeandoning	aeandonment	aeandons	aease	aeased	aeasement	aeasements	aeases	aeash	aeashed	aeashes	aeashing	aeasing	aeate	aeated	aeatement	aeatements	aeater	aeates	aeating	Aeea	aeee	aeeey	aeeeys	aeeot	aeeots	Aeeott	aeereviate	aeereviated	aeereviates	aeereviating	aeereviation	aeereviations	Aeey	aedomen	aedomens	aedominal	aeduit	aeduited	aeduition	aeduitions	aeduitor	aeduitors	aeduits	Aee	aeed	Aeel	Aeelian	Aeelson	Aeerdeen	Aeernathy	aeerrant	aeerration	aeerrations	aeet	aeets	aeetted	aeetter	aeetting	aeeyanie	aehor	aehorred	aehorrent	aehorrer	aehorring	aehors	aeide	aeided	aeides	aeiding	Aeidjan	Aeigail	Aeilene	aeilities	aeility	aejeit	aejeition	aejeitions	aejeitly	aejeitness	aejure	aejured	aejures	aejuring	aelate	aelated	aelates	aelating	aelation	aelative	aelaze	aele	aeler	aelest	aely	Aener	aenormal	aenormalities	aenormality	aenormally	Aeo	aeoard	aeode	aeodes	aeolish	aeolished	aeolisher	aeolishers	aeolishes	aeolishing	aeolishment	aeolishments	aeolition	aeolitionist	aeolitionists	aeominaele	aeominate	aeoriginal	aeorigine	aeorigines	aeort	aeorted	aeorting	aeortion	aeortions	aeortive	aeortively	aeorts	Aeos	aeound	aeounded	aeounding	aeounds	aeout	aeove	aeoveeoard	aeoveground	aeovementioned	aerade	aeraded	aerades	aerading	Aeraham	Aeram	Aerams	Aeramson	aerasion	aerasions	aerasive	aereaition	aereaitions	aereast	aeridge	aeridged	aeridges	aeridging	aeridgment	aeroad	aerogate	aerogated	aerogates	aerogating	aerupt	aeruptly	aeruptness	aesiess	aesiessed	aesiesses	aesiissa	aesiissas	aesiond	aesionded	aesionding	aesionds	aesenie	aesenies	aesent	aesented	aesentee	aesenteeism	aesentees	aesentia	aesenting	aesently	aesentminded	aesents	aesinthe	aesolute	aesolutely	aesoluteness	aesolutes	aesolution	aesolve	aesolved	aesolves	aesolving	aesore	aesoreed	aesoreeniy	aesoreent	aesoreer	aesoreing	aesores	aesorption	aesorptions	aesorptive	aestain	aestained	aestainer	aestaining	aestains	aestention	aestentions	aestinenie	aestrait	aestraited	aestraiting	aestraition	aestraitionism	aestraitionist	aestrait/home/pnico/bin/iolimit.Linux.x86_64: output character limit (2048) exceeded.
+Diffs: ( < Reference > Submitted ):
+ --- Output limited to 10 lines. (There would be too much.) ---
+1c1
+< Aorhus	Aoron	Auouo	ouoxk	ouoft	ouondon	ouondoned	ouondoning	ouondonment	ouondons	ouose	ouosed	ouosement	ouosements	ouoses	ouosh	ouoshed	ouoshes	ouoshing	ouosing	ouote	ouoted	ouotement	ouotements	ouoter	ouotes	ouoting	Auuo	ouue	ouuey	ouueys	ouuot	ouuots	Auuott	ouureviote	ouurevioted	ouureviotes	ouurevioting	ouureviotion	ouureviotions	Auuy	oudomen	oudomens	oudominol	ouduxt	ouduxted	ouduxtion	ouduxtions	ouduxtor	ouduxtors	ouduxts	Aue	oued	Auel	Auelion	Auelson	Auerdeen	Auernothy	ouerront	ouerrotion	ouerrotions	ouet	ouets	ouetted	ouetter	ouetting	oueyonxe	ouhor	ouhorred	ouhorrent	ouhorrer	ouhorring	ouhors	ouide	ouided	ouides	ouiding	Auidjon	Auigoil	Auilene	ouilities	ouility	oujext	oujextion	oujextions	oujextly	oujextness	oujure	oujured	oujures	oujuring	oulote	ouloted	oulotes	ouloting	oulotion	oulotive	ouloze	oule	ouler	oulest	ouly	Auner	ounormol	ounormolities	ounormolity	ounormolly	Auo	ouoord	ouode	ouodes	ouolish	ouolished	ouolisher	ouolishers	ouolishes	ouolishing	ouolishment	ouolishments	ouolition	ouolitionist	ouolitionists	ouominoule	ouominote	ouoriginol	ouorigine	ouorigines	ouort	ouorted	ouorting	ouortion	ouortions	ouortive	ouortively	ouorts	Auos	ouound	ouounded	ouounding	ouounds	ouout	ouove	ouoveuoord	ouoveground	ouovementioned	ourode	ouroded	ourodes	ouroding	Aurohom	Aurom	Auroms	Auromson	ourosion	ourosions	ourosive	oureoxtion	oureoxtions	oureost	ouridge	ouridged	ouridges	ouridging	ouridgment	ourood	ourogote	ourogoted	ourogotes	ourogoting	ourupt	ouruptly	ouruptness	ousxess	ousxessed	ousxesses	ousxisso	ousxissos	ousxond	ousxonded	ousxonding	ousxonds	ousenxe	ousenxes	ousent	ousented	ousentee	ousenteeism	ousentees	ousentio	ousenting	ousently	ousentminded	ousents	ousinthe	ousolute	ousolutely	ousoluteness	ousolutes	ousolution	ousolve	ousolved	ousolves	ousolving	ousoru	ousorued	ousoruenxy	ousoruent	ousoruer	ousoruing	ousorus	ousorption	ousorptions	ousorptive	oustoin	oustoined	oustoiner	oustoining	oustoins	oustention	oustentions	oustinenxe	oustroxt	oustroxted	oustroxting	oustroxtion	oustroxtionism	oustroxtionist	ou/home/pnico/bin/iolimit.Linux.x86_64: output character limit (2048) exceeded.
+
+
+-----------------
+49) newlines in set2 (long file):
+     xlat xxxxxxx 'abc\012def' 
+-----------------
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+CHAPTER I. Down the Rabbit-Hole^M
+^M
+Alice was beginning to get very tired of sitting by her sister on the^M
+bank, and of having nothing to do: once or twice she had peeped into the^M
+book her sister was reading, but it had no pictures or conversations in^M
+it, 'and what is the use of a book,' thought Alice 'without pictures or^M
+conversation?'^M
+^M
+So she was considering in her own mind (as well as she could, for the^M
+hot day made her feel very sleepy and stupid), whether the pleasure^M
+/home/pnico/bin/iolimit.Linux.x86_64: output line limit (10) exceeded.
+Diffs: ( < Reference > Submitted ):
+ --- Output limited to 10 lines. (There would be too much.) ---
+37c37
+< going to happen neft. First, she tried to look down and make out what^M
+---
+> going to happen neat. First, she tried to look down and make out what^M
+105c105
+< glass; there was nothing on it efcept a tiny golden key, and Alice's^M
+---
+> glass; there was nothing on it eacept a tiny golden key, and Alice's^M
+145c145
+< it, and finding it very nice, (it had, in fact, a sort of mifed flavour^M
+/home/pnico/bin/iolimit.Linux.x86_64: output line limit (10) exceeded.
+
+
+-----------------
+50) newlines in set2 (all chars file):
+     xlat xxxxxxx 'abc\012def' 
+-----------------
+Test program output:
+^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@^A^B^C^D^E^F^G^H	
+^K^L^M^N^O^P^Q^R^S^T^U^V^W^X^Y^Z^[^\^]^^^_ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwayz{|}~^?M-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?Diffs: ( < Reference > Submitted ):
+Binary files /home/pn-cs357/lib/asgn1//Tests/Expected/50 and testxlat.5936 differ
+
+
+-----------------
+51) newlines in set2 (long line):
+     xlat xxxxxxx 'abc\012def' 
+-----------------
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Aarhus	Aaron	Ababa	aback	abaft	abandon	abandoned	abandoning	abandonment	abandons	abase	abased	abasement	abasements	abases	abash	abashed	abashes	abashing	abasing	abate	abated	abatement	abatements	abater	abates	abating	Abba	abbe	abbey	abbeys	abbot	abbots	Abbott	abbreviate	abbreviated	abbreviates	abbreviating	abbreviation	abbreviations	Abby	abdomen	abdomens	abdominal	abduct	abducted	abduction	abductions	abductor	abductors	abducts	Abe	abed	Abel	Abelian	Abelson	Aberdeen	Abernathy	aberrant	aberration	aberrations	abet	abets	abetted	abetter	abetting	abeyance	abhor	abhorred	abhorrent	abhorrer	abhorring	abhors	abide	abided	abides	abiding	Abidjan	Abigail	Abilene	abilities	ability	abject	abjection	abjections	abjectly	abjectness	abjure	abjured	abjures	abjuring	ablate	ablated	ablates	ablating	ablation	ablative	ablaze	able	abler	ablest	ably	Abner	abnormal	abnormalities	abnormality	abnormally	Abo	aboard	abode	abodes	abolish	abolished	abolisher	abolishers	abolishes	abolishing	abolishment	abolishments	abolition	abolitionist	abolitionists	abominable	abominate	aboriginal	aborigine	aborigines	abort	aborted	aborting	abortion	abortions	abortive	abortively	aborts	Abos	abound	abounded	abounding	abounds	about	above	aboveboard	aboveground	abovementioned	abrade	abraded	abrades	abrading	Abraham	Abram	Abrams	Abramson	abrasion	abrasions	abrasive	abreaction	abreactions	abreast	abridge	abridged	abridges	abridging	abridgment	abroad	abrogate	abrogated	abrogates	abrogating	abrupt	abruptly	abruptness	abscess	abscessed	abscesses	abscissa	abscissas	abscond	absconded	absconding	absconds	absence	absences	absent	absented	absentee	absenteeism	absentees	absentia	absenting	absently	absentminded	absents	absinthe	absolute	absolutely	absoluteness	absolutes	absolution	absolve	absolved	absolves	absolving	absorb	absorbed	absorbency	absorbent	absorber	absorbing	absorbs	absorption	absorptions	absorptive	abstain	abstained	abstainer	abstaining	abstains	abstention	abstentions	abstinence	abstract	abstracted	abstracting	abstraction	abstractionism	abstractionist	abstract/home/pnico/bin/iolimit.Linux.x86_64: output character limit (2048) exceeded.
+Diffs: ( < Reference > Submitted ):
+ --- Output limited to 10 lines. (There would be too much.) ---
+1c1
+< Aarhus	Aaron	Ababa	aback	abaft	abandon	abandoned	abandoning	abandonment	abandons	abase	abased	abasement	abasements	abases	abash	abashed	abashes	abashing	abasing	abate	abated	abatement	abatements	abater	abates	abating	Abba	abbe	abbey	abbeys	abbot	abbots	Abbott	abbreviate	abbreviated	abbreviates	abbreviating	abbreviation	abbreviations	Abby	abdomen	abdomens	abdominal	abduct	abducted	abduction	abductions	abductor	abductors	abducts	Abe	abed	Abel	Abelian	Abelson	Aberdeen	Abernathy	aberrant	aberration	aberrations	abet	abets	abetted	abetter	abetting	abeyance	abhor	abhorred	abhorrent	abhorrer	abhorring	abhors	abide	abided	abides	abiding	Abidjan	Abigail	Abilene	abilities	ability	abject	abjection	abjections	abjectly	abjectness	abjure	abjured	abjures	abjuring	ablate	ablated	ablates	ablating	ablation	ablative	ablaze	able	abler	ablest	ably	Abner	abnormal	abnormalities	abnormality	abnormally	Abo	aboard	abode	abodes	abolish	abolished	abolisher	abolishers	abolishes	abolishing	abolishment	abolishments	abolition	abolitionist	abolitionists	abominable	abominate	aboriginal	aborigine	aborigines	abort	aborted	aborting	abortion	abortions	abortive	abortively	aborts	Abos	abound	abounded	abounding	abounds	about	above	aboveboard	aboveground	abovementioned	abrade	abraded	abrades	abrading	Abraham	Abram	Abrams	Abramson	abrasion	abrasions	abrasive	abreaction	abreactions	abreast	abridge	abridged	abridges	abridging	abridgment	abroad	abrogate	abrogated	abrogates	abrogating	abrupt	abruptly	abruptness	abscess	abscessed	abscesses	abscissa	abscissas	abscond	absconded	absconding	absconds	absence	absences	absent	absented	absentee	absenteeism	absentees	absentia	absenting	absently	absentminded	absents	absinthe	absolute	absolutely	absoluteness	absolutes	absolution	absolve	absolved	absolves	absolving	absorb	absorbed	absorbency	absorbent	absorber	absorbing	absorbs	absorption	absorptions	absorptive	abstain	abstained	abstainer	abstaining	abstains	abstention	abstentions	abstinence	abstract	abstracted	abstracting	abstraction	abstractionism	abstractionist	ab/home/pnico/bin/iolimit.Linux.x86_64: output character limit (2048) exceeded.
+
+
+-----------------
+52) newlines in set2 (very long file):
+     xlat xxxxxxx 'abc\012def' 
+-----------------
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Project Gutenberg's Alice's Adventures in Wonderland, by Lewis Carroll^M
+^M
+This eBook is for the use of anyone anywhere at no cost and with^M
+almost no restrictions whatsoever.  You may copy it, give it away or^M
+re-use it under the terms of the Project Gutenberg License included^M
+with this eBook or online at www.gutenberg.org^M
+^M
+^M
+Title: Alice's Adventures in Wonderland^M
+^M
+/home/pnico/bin/iolimit.Linux.x86_64: output line limit (10) exceeded.
+Diffs: ( < Reference > Submitted ):
+ --- Output limited to 10 lines. (There would be too much.) ---
+76c76
+< going to happen neft. First, she tried to look down and make out what^M
+---
+> going to happen neat. First, she tried to look down and make out what^M
+144c144
+< glass; there was nothing on it efcept a tiny golden key, and Alice's^M
+---
+> glass; there was nothing on it eacept a tiny golden key, and Alice's^M
+184c184
+< it, and finding it very nice, (it had, in fact, a sort of mifed flavour^M
+/home/pnico/bin/iolimit.Linux.x86_64: output line limit (10) exceeded.
+
+
+-----------------
+55) wide trans alphabet (all chars file):
+     xlat '\001\002\003\004\005\006\007\010\016\017\020\021\022\023\024\025\026\027\030\031\032\033\034\035\036\037!#&()*+,./0123456789:;<=>?ABCDEFGHIJKLMNOPQRSTUVWXYZ^_abcdefghijklmnopqrstuvwxyz{|}~\177\200\201\202\203\204\205\206\207\210\211\212\213\214\215\216\217\220\221\222\223\224\225\226\227\230\231\232\233\234\235\236\237\240\241\242\243\244\245\246\247\250\251\252\253\254\255\256\257\260\261\262\263\264\265\266\267\270\271\272\273\274\275\276\277\300\301\302\303\304\305\306\307\310\311\312\313\314\315\316\317\320\321\322\323\324\325\326\327\330\331\332\333\334\335\336\337\340\341\342\343\344\345\346\347\350\351\352\353\354\355\356\357\360\361\362\363\364\365\366\367\370\371\372\373\374\375\376\377' '\377\376\375\374\373\372\371\370\367\366\365\364\363\362\361\360\357\356\355\354\353\352\351\350\347\346\345\344\343\342\341\340\337\336\335\334\333\332\331\330\327\326\325\324\323\322\321\320\317\316\315\314\313\312\311\310\307\306\305\304\303\302\301\300\277\276\275\274\273\272\271\270\267\266\265\264\263\262\261\260\257\256\255\254\253\252\251\250\247\246\245\244\243\242\241\240\237\236\235\234\233\232\231\230\227\226\225\224\223\222\221\220\217\216\215\214\213\212\211\210\207\206\205\204\203\202\201\200\177~}|{zyxwvutsrqponmlkjihgfedcba_^ZYXWVUTSRQPONMLKJIHGFEDCBA?>=<;:9876543210/.,+*)(&#!\037\036\035\034\033\032\031\030\027\026\025\024\023\022\021\020\017\016\010\007\006\005\004\003\002\001' 
+-----------------
+Test program output:
+^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?^@M-^?M-~M-}M-|M-{M-zM-yM-x	
+^K^L^MM-wM-vM-uM-tM-sM-rM-qM-pM-oM-nM-mM-lM-kM-jM-iM-hM-gM-f M-e"M-d$%M-c'M-bM-aM-`M-_M-^-M-]M-\M-[M-ZM-YM-XM-WM-VM-UM-TM-SM-RM-QM-PM-OM-NM-MM-L@M-KM-JM-IM-HM-GM-FM-EM-DM-CM-BM-AM-@M-?M->M-=M-<M-;M-:M-9M-8M-7M-6M-5M-4M-3M-2[\]M-1M-0`M-/M-.M--M-,M-+M-*M-)M-(M-'M-&M-%M-$M-#M-"M-!M- M-^_M-^^M-^]M-^\M-^[M-^ZM-^YM-^XM-^WM-^VM-^UM-^TM-^SM-^RM-^QM-^@M-^AM-^BM-^CM-^DM-^EM-^FM-^GM-^HM-^IM-^JM-^KM-^LM-^MM-^NM-^OM-^PM-^QM-^RM-^SM-^TM-^UM-^VM-^WM-^XM-^YM-^ZM-^[M-^\M-^]M-^^M-^_M- M-!M-"M-#M-$M-%M-&M-'M-(M-)M-*M-+M-,M--M-.M-/M-0M-1M-2M-3M-4M-5M-6M-7M-8M-9M-:M-;M-<M-=M->M-?M-@M-AM-BM-CM-DM-EM-FM-GM-HM-IM-JM-KM-LM-MM-NM-OM-PM-QM-RM-SM-TM-UM-VM-WM-XM-YM-ZM-[M-\M-]M-^M-_M-`M-aM-bM-cM-dM-eM-fM-gM-hM-iM-jM-kM-lM-mM-nM-oM-pM-qM-rM-sM-tM-uM-vM-wM-xM-yM-zM-{M-|M-}M-~M-^?Diffs: ( < Reference > Submitted ):
+Binary files /home/pn-cs357/lib/asgn1//Tests/Expected/55 and testxlat.5936 differ
+
+
+-----------------
+60) Delete nonvowels (very long file):
+     xlat -d -c aeiouAEIOU 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Submitted program's stderr:
+ --- Output limited to 10 lines. (There would be too much.) ---
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+62) Translate very long file (long set1):
+     xlat abcdefghijklmnopqrstuvqxyzABCDEFGHIJKLMNOPQRSTUVQXYZ A 
+-----------------
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+cPOPTAT nHTTR^@TPJ'A mEMAT'A mU=TRTHPTA MR WORUTPEARU, ^@h /TwMA /APPOEE^M
+^M
+sUMA TeOO_ MA OOP TUT HAT OO ARhORT ARhwUTPT AT RO AOAT ARU wMTU^M
+AEROAT RO PTATPMATMORA wUATAOT=TP.  /OH RAh AORh MT, JM=T MT AwAh OP^M
+PT-HAT MT HRUTP TUT TTPRA OO TUT cPOPTAT nHTTR^@TPJ /MATRAT MRAEHUTU^M
+wMTU TUMA TeOO_ OP OREMRT AT www.JHTTR^@TPJ.OPJ^M
+^M
+^M
+sMTET: mEMAT'A mU=TRTHPTA MR WORUTPEARU^M
+^M
+/home/pnico/bin/iolimit.Linux.x86_64: output line limit (10) exceeded.
+Diffs: ( < Reference > Submitted ):
+ --- Output limited to 10 lines. (There would be too much.) ---
+Binary files /home/pn-cs357/lib/asgn1//Tests/Expected/62 and testxlat.5936 differ
+
+
+-----------------
+64) Translate very long file (empty set2): 
+     xlat aeiou '' 
+-----------------
+ This test was expected to fail, but reports success.
+ Perhaps a bad exit status or no error message?
+
+
+-----------------
+65) Translate very long file (repeats set1):
+     xlat abcabc aeioux 
+-----------------
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Projeit Guteneerg's Aliie's Adventures in Wonderland, ey Lewis Carroll^M
+^M
+This eBook is for the use of anyone anywhere at no iost and with^M
+almost no restriitions whatsoever.  You may iopy it, give it away or^M
+re-use it under the terms of the Projeit Guteneerg Liiense iniluded^M
+with this eBook or online at www.guteneerg.org^M
+^M
+^M
+Title: Aliie's Adventures in Wonderland^M
+^M
+/home/pnico/bin/iolimit.Linux.x86_64: output line limit (10) exceeded.
+Diffs: ( < Reference > Submitted ):
+ --- Output limited to 10 lines. (There would be too much.) ---
+1c1
+< Projext Gutenuerg's Alixe's Adventures in Wonderlond, uy Lewis Corroll^M
+---
+> Projeit Guteneerg's Aliie's Adventures in Wonderland, ey Lewis Carroll^M
+3,6c3,6
+< This eBook is for the use of onyone onywhere ot no xost ond with^M
+< olmost no restrixtions whotsoever.  You moy xopy it, give it owoy or^M
+< re-use it under the terms of the Projext Gutenuerg Lixense inxluded^M
+< with this eBook or online ot www.gutenuerg.org^M
+---
+/home/pnico/bin/iolimit.Linux.x86_64: output line limit (10) exceeded.
+
+
+-----------------
+69) Delete all from a short file:
+     xlat -d -c '' 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+Submitted program's stderr:
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+70) Delete all from a long file:
+     xlat -d -c '' 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Submitted program's stderr:
+ --- Output limited to 10 lines. (There would be too much.) ---
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+71) Delete all from an all chars file:
+     xlat -d -c '' 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+Submitted program's stderr:
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+
+
+-----------------
+72) Delete all from a long line file:
+     xlat -d -c '' 
+-----------------
+Program exited with bad status: 1
+
+Test program output:
+ --- Output limited to 10 lines. (There would be too much.) ---
+Submitted program's stderr:
+ --- Output limited to 10 lines. (There would be too much.) ---
+usage: xlat [ -c ] [ -d ] set1 [ set2 ]
+FAILED.
+
+

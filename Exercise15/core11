@@ -1,0 +1,9 @@
+This test creates an empty hash table and then verifies the following:
+   
+   The capacity of the hash table is as expected (unchanged from creation).
+   The number of unique entries in the hash table is 0.
+   The number of total entries in the hash table is 0.
+
+Note: The htDestroy function is called after the primary test to free all
+   dynamically allocated memory so that Valgrind may be used to verify that
+   there are no memory leaks.

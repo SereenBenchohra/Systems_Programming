@@ -1,0 +1,13 @@
+Enter the seed for random number generation: Enter the maximum letter for the game (A-Z): Enter the number of positions for the game (1-8): Enter the number of guesses allowed for the game: 
+Enter guess 1: Nope, 0 exact guesses and 0 inexact guesses
+
+Enter guess 2: Nope, 1 exact guesses and 0 inexact guesses
+
+Enter guess 3: Nope, 2 exact guesses and 0 inexact guesses
+
+Enter guess 4: Nope, 1 exact guesses and 0 inexact guesses
+
+Enter guess 5: Nope, 3 exact guesses and 0 inexact guesses
+
+Enter guess 6: 
+Wow, you won in 6 guesses - well done!

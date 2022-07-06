@@ -1,0 +1,2 @@
+Tests Mastermind's handling of invalid number of positions - specifically
+non-numeric values and values out of range (1 to 8, inclusive).

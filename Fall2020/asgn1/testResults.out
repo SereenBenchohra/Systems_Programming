@@ -1,0 +1,85 @@
+--------------------------------------------------
+Looking for detab.c (the expected source filename).
+--------------------------------------------------
+
+--------------------------------
+Checking for long lines (no program should have any lines > 80 chars)
+--------------------------------
+
+Line length ok.
+
+
+
+--------------------------------
+Building the application (detab)
+--------------------------------
+
+
+gcc -ansi -pedantic -Wall -I. -o detab detab.c
+
+
+--------------------------------
+Running the application 
+--------------------------------
+
+
+
+--------------------------------------------------------
+Test Results:
+   These are the results of trying your detab against
+several input files with different characteristics 
+described by the filename.
+
+  The testfiles are located in /home/pn-cs357/lib/asgn1//Test/Inputs/.
+
+
+        0_Empty...ok.
+        1_NoTabs...ok.
+        2_AllTabs...ok.
+        3_TrailingTabs...ok.
+        4_MixedTabs...ok.
+        5_OneSpaceTab...ok.
+        6_ReallyLongLine...ok.
+        7_Backspace...ok.
+        8_LotsBackspaces...FAILURE.
+        9_embeddedFFbyte...ok.
+        A_AnotherBackspaceTest...ok.
+        B_OneMoreBackspaceTest...ok.
+
+Passed 11 out of 12 tests.
+
+--------------------------------------------------------
+
+FAILED.
+
+
+================================================
+Test 8_LotsBackspaces
+================================================
+Input 
+==============
+a^H^Iend^I
+ab^H^H^Iend^I
+abc^H^H^H^Iend^I
+abcd^H^H^H^H^Iend^I
+abcde^H^H^H^H^H^Iend^I
+abcdef^H^H^H^H^H^H^Iend^I
+abcdefg^H^H^H^H^H^H^H^Iend^I
+abcdefgh^H^H^H^H^H^H^H^H^Iend^I
+abcdefgh^H^H^H^H^H^H^H^H^H^H^H^H^Iend
+
+==============
+Diffs for 8_LotsBackspaces
+ < reference > submitted 
+9c9
+<_abcdefgh^H^H^H^H^H^H^H^H^H^H^H^H________end
+---
+>_abcdefgh^H^H^H^H^H^H^H^H^H^H^H^H____________end
+================================================
+
+
+
+
+Failure details (up to 16k or 100 lines each):
+ (for visibility, tabs look like ^I and spaces like _)
+FAILED.

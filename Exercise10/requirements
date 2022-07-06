@@ -1,0 +1,13 @@
+reqAtMostGlobalVariables 0
+reqAtMostStaticFileVariables  0
+reqAtMostStaticLocalVariables  0
+reqNoUseOf "(^goto | goto )"
+reqNoDynamicMemory
+reqUseOf "(^fopen|[ =(]fopen)[( ]"
+reqUseOf "(^fread|[ =(]fread)[( ]"
+reqUseOf "(^fclose|[ =(]fclose)[( ]"
+reqUseOf "(^perror|[ =(]perror)[( ]"
+reqUseOf "(^ferror|[ =(]ferror)[( ]"
+reqUseOf "(^exit|[ =(]exit)[( ]"
+reqUseOf "(^isprint|[ =(]isprint)[( ]"
+reqUseOf "[= (,]EOF[ ),=;]"

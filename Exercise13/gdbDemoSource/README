@@ -1,0 +1,10 @@
+This code:
+
+   1. Does compile with a warning (related to the segfault error) - that is
+      expected and okay.
+
+   2. Will segfault when provided with three OUT-OF-ORDER int values.
+
+   3. Run students through the provided demo-script (get from Kurt) and
+      record their score on the provided score-sheet (get from Kurt).
+

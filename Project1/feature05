@@ -1,0 +1,2 @@
+Tests Mastermind's handling of invalid maximum letters. This includes
+things like numeric values, lowercase letters, punctuation, et cetera.

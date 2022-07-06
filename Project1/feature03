@@ -1,0 +1,3 @@
+This test invokes Mastermind with the -show flag and all valid inputs to verify
+that the game board is displayed as expected. Note that this feature is
+VERY HELPFUL DURING DEVELOPMENT - I'd be inclined to implement it early!

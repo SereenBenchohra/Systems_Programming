@@ -1,0 +1,20 @@
+#Lab 01 - Sereen Benchohra (sbenchoh)
+
+ - To compile the program, enter the command "gcc -Wall main.c" in the terminal
+
+ - To run the program enter "./a.out" in the terminal
+
+1.  Machine : unix5.csc.calpoly.edu
+2.  Aside from the intro page I manned for printf
+    and give useful information how to use printf
+
+3.  For this program I used the vim editor since 
+    it is a convenient editor to sign in the CSL 
+    servers when I am on the terminal
+
+
+4.  My program is supposed to run a C program that 
+    prints ""Hello World"". Thankfully, I did not 
+    encounter any issues with the program and it 
+    ran smoothly.
+

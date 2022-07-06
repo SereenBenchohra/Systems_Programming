@@ -1,0 +1,1 @@
+Test that htCreate asserts when the load factor is less than zero.

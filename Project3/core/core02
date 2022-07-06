@@ -1,0 +1,1 @@
+Test that htCreate asserts when the size of the array of sizes is zero.

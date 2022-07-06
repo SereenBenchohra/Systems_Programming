@@ -1,0 +1,326 @@
+==24021== Memcheck, a memory error detector
+==24021== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==24021== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==24021== Command: ./a.out
+==24021== 
+Running regular core11
+Running regular core12
+Running regular core13
+Running regular core14
+Failed test in testHashTable.c at line 233:
+   Found substitution freq, value 1, expected 2
+Failed test in testHashTable.c at line 234:
+   Found substitution htCapacity(ht), value 46, expected 2
+Failed test in testHashTable.c at line 235:
+   Found substitution htUniqueEntries(ht), value 2, expected 1
+Failed test in testHashTable.c at line 240:
+   Found substitution freq, value 1, expected 3
+Failed test in testHashTable.c at line 241:
+   Found substitution htCapacity(ht), value 46, expected 2
+Failed test in testHashTable.c at line 242:
+   Found substitution htUniqueEntries(ht), value 3, expected 1
+Running regular core15
+Failed test in testHashTable.c at line 268:
+   Found substitution htCapacity(ht), value 7, expected 2
+Running regular core16
+Running regular core17
+Running regular core18
+Failed test in testHashTable.c at line 317:
+   Found substitution (htLookUp(ht,string)).frequency, value 0, expected 2
+==24021== Invalid read of size 1
+==24021==    at 0x4C2E1E1: __strcmp_sse42 (vg_replace_strmem.c:852)
+==24021==    by 0x402BD2: core18 (testHashTable.c:318)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==24021== 
+==24021== 
+==24021== Process terminating with default action of signal 11 (SIGSEGV)
+==24021==  Access not within mapped region at address 0x0
+==24021==    at 0x4C2E1E1: __strcmp_sse42 (vg_replace_strmem.c:852)
+==24021==    by 0x402BD2: core18 (testHashTable.c:318)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021==  If you believe this happened as a result of a stack
+==24021==  overflow in your program's main thread (unlikely but
+==24021==  possible), you can try to increase the size of the
+==24021==  main thread stack using the --main-stacksize= flag.
+==24021==  The main thread stack size used in this run was 8388608.
+==24021== 
+==24021== HEAP SUMMARY:
+==24021==     in use at exit: 1,175 bytes in 33 blocks
+==24021==   total heap usage: 47 allocs, 14 frees, 2,719 bytes allocated
+==24021== 
+==24021== 4 bytes in 1 blocks are indirectly lost in loss record 1 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401688: randomString (testHashTable.c:76)
+==24021==    by 0x40299C: core17 (testHashTable.c:295)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 7 bytes in 1 blocks are still reachable in loss record 2 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x40171F: sameString (testHashTable.c:93)
+==24021==    by 0x402AEE: core18 (testHashTable.c:312)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 7 bytes in 1 blocks are indirectly lost in loss record 3 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x40171F: sameString (testHashTable.c:93)
+==24021==    by 0x402057: core14 (testHashTable.c:224)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 16 bytes in 1 blocks are definitely lost in loss record 4 of 33
+==24021==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==24021==    by 0x400B73: htCreate (hashTable.c:60)
+==24021==    by 0x402049: core14 (testHashTable.c:223)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 16 bytes in 1 blocks are definitely lost in loss record 5 of 33
+==24021==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==24021==    by 0x400B73: htCreate (hashTable.c:60)
+==24021==    by 0x40252C: core15 (testHashTable.c:253)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 24 bytes in 1 blocks are still reachable in loss record 6 of 33
+==24021==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==24021==    by 0x400B73: htCreate (hashTable.c:60)
+==24021==    by 0x402AE0: core18 (testHashTable.c:311)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 24 bytes in 1 blocks are definitely lost in loss record 7 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x4020EE: core14 (testHashTable.c:231)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 24 bytes in 1 blocks are definitely lost in loss record 8 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x4022C7: core14 (testHashTable.c:238)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 24 bytes in 1 blocks are definitely lost in loss record 9 of 33
+==24021==    at 0x4C2BFB9: calloc (vg_replace_malloc.c:762)
+==24021==    by 0x400B73: htCreate (hashTable.c:60)
+==24021==    by 0x40298E: core17 (testHashTable.c:294)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 24 bytes in 1 blocks are definitely lost in loss record 10 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x402B21: core18 (testHashTable.c:314)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 24 bytes in 1 blocks are definitely lost in loss record 11 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x402B34: core18 (testHashTable.c:315)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 28 (24 direct, 4 indirect) bytes in 1 blocks are definitely lost in loss record 12 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x4029AE: core17 (testHashTable.c:295)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 31 (24 direct, 7 indirect) bytes in 1 blocks are definitely lost in loss record 13 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x40206E: core14 (testHashTable.c:227)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 32 bytes in 1 blocks are indirectly lost in loss record 14 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401688: randomString (testHashTable.c:76)
+==24021==    by 0x401D6D: core13 (testHashTable.c:203)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 34 bytes in 1 blocks are indirectly lost in loss record 15 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401688: randomString (testHashTable.c:76)
+==24021==    by 0x401DF6: core13 (testHashTable.c:207)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 48 bytes in 1 blocks are indirectly lost in loss record 16 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401688: randomString (testHashTable.c:76)
+==24021==    by 0x4029D4: core17 (testHashTable.c:297)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 50 bytes in 1 blocks are indirectly lost in loss record 17 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401688: randomString (testHashTable.c:76)
+==24021==    by 0x4025C3: core15 (testHashTable.c:260)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 54 bytes in 1 blocks are indirectly lost in loss record 18 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401688: randomString (testHashTable.c:76)
+==24021==    by 0x401B18: core12 (testHashTable.c:185)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 56 (24 direct, 32 indirect) bytes in 1 blocks are definitely lost in loss record 19 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x401D7F: core13 (testHashTable.c:203)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 58 (24 direct, 34 indirect) bytes in 1 blocks are definitely lost in loss record 20 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x401E08: core13 (testHashTable.c:207)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 59 bytes in 1 blocks are indirectly lost in loss record 21 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401688: randomString (testHashTable.c:76)
+==24021==    by 0x40264C: core15 (testHashTable.c:264)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 59 bytes in 1 blocks are indirectly lost in loss record 22 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401688: randomString (testHashTable.c:76)
+==24021==    by 0x4029B8: core17 (testHashTable.c:296)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 59 bytes in 1 blocks are indirectly lost in loss record 23 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401688: randomString (testHashTable.c:76)
+==24021==    by 0x402AFC: core18 (testHashTable.c:313)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 66 bytes in 1 blocks are indirectly lost in loss record 24 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401688: randomString (testHashTable.c:76)
+==24021==    by 0x40253A: core15 (testHashTable.c:256)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 72 (24 direct, 48 indirect) bytes in 1 blocks are definitely lost in loss record 25 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x4029E6: core17 (testHashTable.c:297)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 74 (24 direct, 50 indirect) bytes in 1 blocks are definitely lost in loss record 26 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x4025D5: core15 (testHashTable.c:260)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 78 (24 direct, 54 indirect) bytes in 1 blocks are definitely lost in loss record 27 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x401B2A: core12 (testHashTable.c:185)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 80 bytes in 1 blocks are still reachable in loss record 28 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x400AF4: htCreate (hashTable.c:48)
+==24021==    by 0x402AE0: core18 (testHashTable.c:311)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 83 (24 direct, 59 indirect) bytes in 1 blocks are definitely lost in loss record 29 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x40265E: core15 (testHashTable.c:264)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 83 (24 direct, 59 indirect) bytes in 1 blocks are definitely lost in loss record 30 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x4029CA: core17 (testHashTable.c:296)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 83 (24 direct, 59 indirect) bytes in 1 blocks are definitely lost in loss record 31 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x402B0E: core18 (testHashTable.c:313)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 90 (24 direct, 66 indirect) bytes in 1 blocks are definitely lost in loss record 32 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x401241: htAdd (hashTable.c:260)
+==24021==    by 0x40254C: core15 (testHashTable.c:256)
+==24021==    by 0x403049: testAll (testHashTable.c:391)
+==24021==    by 0x403161: runTests (testHashTable.c:417)
+==24021==    by 0x4033E9: main (testHashTable.c:586)
+==24021== 
+==24021== 176 bytes in 1 blocks are still reachable in loss record 33 of 33
+==24021==    at 0x4C29EA3: malloc (vg_replace_malloc.c:309)
+==24021==    by 0x40328D: initTests (testHashTable.c:461)
+==24021==    by 0x403323: initRegularTests (testHashTable.c:508)
+==24021==    by 0x4033D8: main (testHashTable.c:586)
+==24021== 
+==24021== LEAK SUMMARY:
+==24021==    definitely lost: 416 bytes in 18 blocks
+==24021==    indirectly lost: 472 bytes in 11 blocks
+==24021==      possibly lost: 0 bytes in 0 blocks
+==24021==    still reachable: 287 bytes in 4 blocks
+==24021==         suppressed: 0 bytes in 0 blocks
+==24021== 
+==24021== For counts of detected and suppressed errors, rerun with: -v
+==24021== ERROR SUMMARY: 19 errors from 19 contexts (suppressed: 0 from 0)

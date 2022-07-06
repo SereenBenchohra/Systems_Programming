@@ -1,0 +1,11 @@
+Creates a hash table, adds two unique entries, and after adding the second
+entry, verifies the following:
+
+   The second call to htAdd returns a frequency of 1.
+   The capacity of the hash table is as expected (unchanged from creation).
+   The number of unique entries in the hash table is 2.
+   The number of total entries in the hash table is 2.
+
+Note: The htDestroy function is called after the primary test to free all
+   dynamically allocated memory so that Valgrind may be used to verify that
+   there are no memory leaks.

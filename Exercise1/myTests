@@ -1,0 +1,11 @@
+#!/bin/bash
+a.out < test1.in > test1.out
+diff test1.out test1.expect
+
+a.out < test2.in > test2.out
+diff test2.out test2.expect
+
+a.out < test3.in > test3.out
+diff test3.out test3.expect
+
+

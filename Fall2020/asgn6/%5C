@@ -1,0 +1,96 @@
+#define _GNU_SOURCE
+#include<stdlib.h> 
+#include<unistd.h> 
+#include<sys/types.h> 
+#include<sys/wait.h> 
+#include <stdio.h>
+#include <stdlib.h>
+#include "getInfo.h"
+// #include "readline.h"
+#include <string.h> 
+#include <readline/readline.h>                                                                                                                        
+#include <readline/history.h>   
+
+
+#define MAXCOM 1000 // max number of letters to be supported 
+#define MAXLIST 100 // max number of commands to be supported 
+
+
+int takeInput(char* str) 
+{ 
+   char* buf; 
+         
+   buf = readline("8-P "); 
+   if (strlen(buf) != 0) { 
+      add_history(buf); 
+      strcpy(str, buf); 
+      return 0; 
+   } else 
+      return 1; 
+                                                                
+} 
+
+char *lsh_read_line(void)
+{
+    
+    int numBytes;
+    char *line = NULL;
+    ssize_t bufsize = 512; // have getline allocate a buffer for us
+
+    if ((numBytes = getline(&line, &bufsize, stdin)) == -1){
+       if (feof(stdin)) 
+           exit(EXIT_SUCCESS);  // We recieved an EOF
+       else  {
+              perror("readline");
+              exit(EXIT_FAILURE);
+          }
+       
+   }
+   if( numBytes > 512)
+   {
+      fprintf(stderr, "Cmd line too long ");
+      exit(1);
+
+   }
+   return line;
+}
+
+
+/* dont need the command line since making our own shell and cmdLine */
+int main()
+{
+   
+/*   int i;
+   char *cmdLine, **parseBySpace; 
+   char* token;
+   FILE *file;
+  
+ */
+ 
+ char *cmdLine;
+ 
+ /*fgets(buf, 512, infile);*/
+
+
+ /* char inputString[MAXCOM]; */
+
+
+
+ while(1) {
+   /*   if(takeInput(inputString))
+         continue;
+   */
+
+   printf("8-P ");
+
+   cmdLine = lsh_read_line();
+   
+   printf(" The command, %s then go to next prompt\n ", cmdLine);
+
+ 
+ }
+
+
+   return 0;
+
+}

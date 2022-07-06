@@ -1,0 +1,8 @@
+Calls htLookUp on an empty hash table and verifies the following:
+
+   The data field of the returned HTEntry is NULL.
+   The frequency field of the returned HTEntry is 0.
+
+Note: The htDestroy function is called after the primary test to free all
+   dynamically allocated memory so that Valgrind may be used to verify that
+   there are no memory leaks.

@@ -1,0 +1,91 @@
+In file included from hashTable.c:5:0:
+hashTable.h:20:4: error: unknown type name ‘HTEntry’
+    HTEntry entry;
+    ^
+hashTable.h:44:4: error: unknown type name ‘HTFunctions’
+    HTFunctions *htFunctions;
+    ^
+hashTable.c: In function ‘htCreate’:
+hashTable.c:45:28: warning: assignment from incompatible pointer type [enabled by default]
+    hashTable-> htFunctions = functions;
+                            ^
+hashTable.c: In function ‘freeNodes’:
+hashTable.c:72:23: error: request for member ‘data’ in something not a structure or union
+       free(temp->entry.data);
+                       ^
+hashTable.c: In function ‘HashIndex’:
+hashTable.c:110:33: error: request for member ‘hash’ in something not a structure or union
+    hash = hashtable->htFunctions->hash(data);
+                                 ^
+hashTable.c: In function ‘CurNodeIsNULL’:
+hashTable.c:139:43: error: request for member ‘data’ in something not a structure or union
+       hashIndex = HashIndex(curNode->entry.data, hashtable);
+                                           ^
+hashTable.c: In function ‘checkForDuplicate’:
+hashTable.c:191:45: error: request for member ‘frequency’ in something not a structure or union
+    printf("freq before %d\n", curNode->entry.frequency);
+                                             ^
+hashTable.c:192:18: error: request for member ‘frequency’ in something not a structure or union
+    curNode->entry.frequency += 1;
+                  ^
+hashTable.c:194:44: error: request for member ‘frequency’ in something not a structure or union
+    printf("freq after %d\n", curNode->entry.frequency);
+                                            ^
+hashTable.c: In function ‘IfHashNotEmpty’:
+hashTable.c:204:33: error: request for member ‘compare’ in something not a structure or union
+       if (hashtable->htFunctions->compare(curNode->entry.data, data) == 0) {
+                                 ^
+hashTable.c:204:57: error: request for member ‘data’ in something not a structure or union
+       if (hashtable->htFunctions->compare(curNode->entry.data, data) == 0) {
+                                                         ^
+hashTable.c:214:22: error: request for member ‘frequency’ in something not a structure or union
+       new_node->entry.frequency = 1;
+                      ^
+hashTable.c:220:25: error: request for member ‘frequency’ in something not a structure or union
+    return curNode->entry.frequency;
+                         ^
+hashTable.c: In function ‘checkNodeIsNULL’:
+hashTable.c:229:19: error: request for member ‘frequency’ in something not a structure or union
+    new_node->entry.frequency = 1;
+                   ^
+hashTable.c:234:25: error: request for member ‘frequency’ in something not a structure or union
+    return curNode->entry.frequency;  /* new_node was here */
+                         ^
+hashTable.c: In function ‘htAdd’:
+hashTable.c:250:33: error: request for member ‘hash’ in something not a structure or union
+    hash = hashtable->htFunctions->hash(data);
+                                 ^
+hashTable.c:265:19: error: request for member ‘data’ in something not a structure or union
+    new_node->entry.data = data;
+                   ^
+hashTable.c: In function ‘checkInChain’:
+hashTable.c:287:32: error: request for member ‘compare’ in something not a structure or union
+       if(hashtable->htFunctions->compare(curNode->entry.data, data) == 0)
+                                ^
+hashTable.c:287:56: error: request for member ‘data’ in something not a structure or union
+       if(hashtable->htFunctions->compare(curNode->entry.data, data) == 0)
+                                                        ^
+hashTable.c:289:42: error: request for member ‘frequency’ in something not a structure or union
+          entry.frequency = curNode->entry.frequency;
+                                          ^
+hashTable.c:290:37: error: request for member ‘data’ in something not a structure or union
+          entry.data = curNode->entry.data;
+                                     ^
+hashTable.c: In function ‘htLookUp’:
+hashTable.c:309:33: error: request for member ‘hash’ in something not a structure or union
+    hash = hashtable->htFunctions->hash(data);
+                                 ^
+hashTable.c: In function ‘htToArray’:
+hashTable.c:342:18: error: incompatible types when assigning to type ‘HTEntry’ from type ‘int’
+       entries[i] = hashTable1->theArray[i]->entry;
+                  ^
+hashTable.c:349:21: error: incompatible types when assigning to type ‘HTEntry’ from type ‘int’
+          entries[i] = curNode->entry;
+                     ^
+In file included from testHashTable.c:18:0:
+hashTable.h:20:4: error: unknown type name ‘HTEntry’
+    HTEntry entry;
+    ^
+hashTable.h:44:4: error: unknown type name ‘HTFunctions’
+    HTFunctions *htFunctions;
+    ^
